@@ -3,19 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tailwind Template</title>
-  <link rel="stylesheet" href="./src/output.css">
+  <title>Mike Cyber Dev | Portfolio</title>
+  <link rel="stylesheet" href="./src/output.css" />
 </head>
-<body>
-  <header></header>
+<body class="bg-[#0a0a0f] text-white scroll-smooth">
+
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <h1 class="text-lg font-bold tracking-wide text-cyan-400">Mike Cyber Dev</h1>
+      <ul class="hidden gap-6 text-sm md:flex">
+        <li><a href="#about" class="hover:text-cyan-400">About</a></li>
+        <li><a href="#skills" class="hover:text-cyan-400">Skills</a></li>
+        <li><a href="#projects" class="hover:text-cyan-400">Projects</a></li>
+        <li><a href="#contact" class="hover:text-cyan-400">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <main>
-    <section id="hero"></section>
-    <section id="about"></section>
-    <section id="skills"></section>
-    <section id="projects"></section>
-    <section id="resume"></section>
-    <section id="contact"></section>
+    <section id="hero" class="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6">
+      <p class="mb-4 text-sm uppercase tracking-[0.3em] text-cyan-400">Frontend Developer • Fullstack in Training • Cybersecurity Learner</p>
+      <h2 class="max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
+        Building modern web interfaces with a growing security mindset.
+      </h2>
+      <p class="mt-6 max-w-2xl text-base text-gray-300 md:text-lg">
+        I am a student, an enthusiast, and a fast learner focused on frontend web development while growing into full stack development and cybersecurity.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#projects" class="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400">
+          View Projects
+        </a>
+        <a href="./public/files/Mike_CV.pdf" class="rounded-xl border border-cyan-400 px-6 py-3 font-semibold text-cyan-400 transition hover:bg-cyan-400 hover:text-black">
+          Download CV
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="mx-auto max-w-6xl px-6 py-20">
+      <h3 class="mb-6 text-3xl font-bold text-cyan-400">About Me</h3>
+      <p class="max-w-3xl text-gray-300 leading-8">
+        I am a student and fast learner with a strong interest in frontend web development, full stack engineering, and cybersecurity. I enjoy building clean portfolio-style interfaces and growing my skills in PHP, Python, ethical hacking, penetration testing, and network mapping. My goal is to combine modern web development with security awareness so I can build useful, responsive, and safer digital experiences.
+      </p>
+    </section>
+
+    <section id="skills" class="mx-auto max-w-6xl px-6 py-20">
+      <h3 class="mb-10 text-3xl font-bold text-cyan-400">Skills</h3>
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h4 class="mb-4 text-xl font-semibold">Frontend</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Tailwind CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h4 class="mb-4 text-xl font-semibold">Learning</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li>React</li>
+            <li>PHP</li>
+            <li>Python</li>
+            <li>Fullstack Development</li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h4 class="mb-4 text-xl font-semibold">Cybersecurity</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li>Penetration Testing</li>
+            <li>Ethical Hacking</li>
+            <li>Network Mapping</li>
+            <li>SOC Fundamentals</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="mx-auto max-w-6xl px-6 py-20">
+      <h3 class="mb-10 text-3xl font-bold text-cyan-400">Projects</h3>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg">
+          <h4 class="mb-3 text-xl font-semibold">Portfolio Website</h4>
+          <p class="mb-4 text-gray-300">
+            My personal portfolio website built to showcase my skills, projects, and growth in web development and cybersecurity.
+          </p>
+          <span class="text-sm text-cyan-400">HTML • Tailwind CSS • JavaScript</span>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg">
+          <h4 class="mb-3 text-xl font-semibold">Estate Project</h4>
+          <p class="mb-4 text-gray-300">
+            An ongoing project focused on solving real estate-related needs with a clean and user-friendly web interface.
+          </p>
+          <span class="text-sm text-cyan-400">In Progress</span>
+        </article>
+
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg">
+          <h4 class="mb-3 text-xl font-semibold">Android Security Testing Lab</h4>
+          <p class="mb-4 text-gray-300">
+            A controlled learning project focused on understanding mobile security concepts, authorized testing workflows, and security awareness.
+          </p>
+          <span class="text-sm text-cyan-400">Security Research • Lab Practice</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="mx-auto max-w-6xl px-6 py-20">
+      <h3 class="mb-6 text-3xl font-bold text-cyan-400">Contact</h3>
+      <p class="mb-6 max-w-2xl text-gray-300">
+        Interested in working together, collaborating, or connecting professionally? Reach out through any of the platforms below.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="mailto:your@email.com" class="rounded-xl border border-white/10 px-5 py-3 hover:border-cyan-400 hover:text-cyan-400">Email</a>
+        <a href="https://github.com/Mikecyberdev" class="rounded-xl border border-white/10 px-5 py-3 hover:border-cyan-400 hover:text-cyan-400">GitHub</a>
+        <a href="#" class="rounded-xl border border-white/10 px-5 py-3 hover:border-cyan-400 hover:text-cyan-400">LinkedIn</a>
+        <a href="#" class="rounded-xl border border-white/10 px-5 py-3 hover:border-cyan-400 hover:text-cyan-400">WhatsApp</a>
+      </div>
+    </section>
   </main>
-  <footer></footer>
+
+  <footer class="border-t border-white/10 px-6 py-6 text-center text-sm text-gray-400">
+    © 2026 Mike Cyber Dev. All rights reserved.
+  </footer>
+
 </body>
 </html>
