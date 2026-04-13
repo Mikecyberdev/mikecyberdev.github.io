@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
@@ -22,9 +22,9 @@
     <div class="flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-3">
         <img
-          src="./src/assets/images/logo-nav.png"
+          src="./src/assets/images/logo-navbar.png"
           alt="Mike Cyber Dev Logo"
-          class="h-12 w-auto md:h-14 float-slow"
+          class="float-slow h-12 w-auto md:h-14"
         />
       </a>
 
@@ -60,30 +60,53 @@
         id="menu-btn"
         class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-3 text-white transition hover:border-cyan-400 hover:text-cyan-400 md:hidden"
         aria-label="Open menu"
+        type="button"
       >
         <i class="fa-solid fa-bars text-lg"></i>
       </button>
     </div>
 
-    <div
-      id="mobile-menu"
-      class="hidden border-t border-white/10 pt-4 md:hidden"
-    >
-      <ul class="flex flex-col gap-4 text-sm">
+    <div id="mobile-menu" class="hidden border-t border-white/10 pt-4 md:hidden">
+      <ul class="flex flex-col gap-3 text-sm">
         <li>
-          <a href="#hero" class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">Home</a>
+          <a
+            href="#hero"
+            class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
+          >
+            Home
+          </a>
         </li>
         <li>
-          <a href="#about" class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">About</a>
+          <a
+            href="#about"
+            class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
+          >
+            About
+          </a>
         </li>
         <li>
-          <a href="#skills" class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">Skills</a>
+          <a
+            href="#skills"
+            class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
+          >
+            Skills
+          </a>
         </li>
         <li>
-          <a href="#projects" class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">Projects</a>
+          <a
+            href="#projects"
+            class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
+          >
+            Projects
+          </a>
         </li>
         <li>
-          <a href="#contact" class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">Contact</a>
+          <a
+            href="#contact"
+            class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
+          >
+            Contact
+          </a>
         </li>
         <li class="pt-2">
           <a
@@ -292,7 +315,8 @@
       <div class="absolute inset-0 bg-black/55"></div>
 
       <div class="relative z-10 mx-auto w-full max-w-6xl">
-        <div class="rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:p-12" data-aos="fade-up">
+        <div class="rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:p-12"
+          data-aos="fade-up">
           <div class="mb-12" data-aos="fade-up">
             <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400">
               Projects
@@ -397,10 +421,11 @@
     </section>
 
     <section id="contact" class="relative flex min-h-screen items-center px-6 py-24">
-      <div class="absolute inset-0 bg-black/60" ></div>
+      <div class="absolute inset-0 bg-black/60"></div>
 
       <div class="relative z-10 mx-auto w-full max-w-6xl" data-aos="fade-up">
-        <div class="rounded-3xl border border-white/10 bg-black/30 p-8 shadow-2xl backdrop-blur-md md:p-12 overflow-hidden" >
+        <div
+          class="rounded-3xl border border-white/10 bg-black/30 p-8 shadow-2xl backdrop-blur-md md:p-12 overflow-hidden">
 
           <!-- Heading -->
           <div class="mb-12 text-center " data-aos="fade-up">
@@ -459,7 +484,8 @@
             </div>
 
             <!-- Right form panel -->
-            <form class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg overflow-hidden" data-aos="fade-left">
+            <form class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg overflow-hidden"
+              data-aos="fade-left">
               <div class="mb-5">
                 <label for="email" class="mb-2 block text-sm font-medium text-gray-200">
                   Email
@@ -527,35 +553,68 @@
     </div>
   </footer>
   <!-- Nav Link -->
+  
+
   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".nav-link");
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute("id");
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
 
-            navLinks.forEach((link) => {
-              link.classList.remove("active");
+    function setActiveLink() {
+      let current = "";
 
-              if (link.getAttribute("href") === `#${id}`) {
-                link.classList.add("active");
-              }
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.6,
-      }
-    );
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 160;
+        const sectionHeight = section.offsetHeight;
 
-    sections.forEach((section) => {
-      observer.observe(section);
+        if (
+          window.scrollY >= sectionTop &&
+          window.scrollY < sectionTop + sectionHeight
+        ) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active-link");
+
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active-link");
+        }
+      });
+
+      mobileNavLinks.forEach((link) => {
+        link.classList.remove("active-link");
+
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active-link");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", setActiveLink);
+    window.addEventListener("load", setActiveLink);
+    setActiveLink();
+
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (mobileMenu) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
     });
-  </script>
+  });
+</script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
