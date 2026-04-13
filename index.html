@@ -833,13 +833,14 @@
       const menuBtn = document.getElementById("menu-btn");
       const mobileMenu = document.getElementById("mobile-menu");
       const menuIcon = document.getElementById("menu-icon");
-      const siteHeader = document.getElementById('site-header');
+      const siteHeader = document.getElementById("site-header");
 
       const sections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll(".nav-link");
       const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
       let lastScrollY = window.scrollY;
+      let hideNavbarTimeout;
 
       if (menuBtn && mobileMenu && menuIcon) {
         menuBtn.addEventListener("click", () => {
@@ -863,14 +864,15 @@
 
       function setActiveLink() {
         let current = "";
+        const scrollMiddle = window.scrollY + window.innerHeight / 3;
 
         sections.forEach((section) => {
-          const sectionTop = section.offsetTop - 160;
+          const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
 
           if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
+            scrollMiddle >= sectionTop &&
+            scrollMiddle < sectionTop + sectionHeight
           ) {
             current = section.getAttribute("id");
           }
@@ -891,37 +893,71 @@
         });
       }
 
+      function showHeader() {
+        if (!siteHeader) return;
+        siteHeader.classList.remove("-translate-y-full");
+      }
+
+      function hideHeader() {
+        if (!siteHeader) return;
+        if (window.scrollY <= 20) return;
+
+        const menuIsOpen = mobileMenu
+          ? mobileMenu.classList.contains("max-h-96")
+          : false;
+
+        if (menuIsOpen) return;
+
+        siteHeader.classList.add("-translate-y-full");
+      }
+
       function handleHeaderScroll() {
         if (!siteHeader) return;
 
         const currentScrollY = window.scrollY;
 
         if (currentScrollY <= 20) {
-          siteHeader.classlist.remove("-translate-y-full");
+          showHeader();
           lastScrollY = currentScrollY;
           return;
         }
 
-        const menuIsOpen = mobileMenu && mobileMenu.classList.contains("max-h-96");
+        const menuIsOpen = mobileMenu
+          ? mobileMenu.classList.contains("max-h-96")
+          : false;
 
         if (menuIsOpen) {
-          siteHeader.classList.remove("-translate-y-full");
+          showHeader();
           lastScrollY = currentScrollY;
           return;
         }
 
         if (currentScrollY > lastScrollY) {
-          siteHeader.classList.add("-translate-y-full");
+          hideHeader();
         } else {
-          siteHeader.classList.remove("-translate-y-full");
+          showHeader();
         }
+
         lastScrollY = currentScrollY;
+
+        clearTimeout(hideNavbarTimeout);
+        hideNavbarTimeout = setTimeout(() => {
+          hideHeader();
+        }, 1800);
       }
 
-      window.addEventListener("scroll", () => { setActiveLink(); handleHeaderScroll(); });
-      window.addEventListener("load", () => { setActiveLink(); handleHeaderScroll(); });
+      window.addEventListener("scroll", () => {
+        setActiveLink();
+        handleHeaderScroll();
+      });
+
+      window.addEventListener("load", () => {
+        setActiveLink();
+        showHeader();
+      });
+
       setActiveLink();
-      handleHeaderScroll();
+      showHeader();
 
       mobileNavLinks.forEach((link) => {
         link.addEventListener("click", () => {
@@ -936,7 +972,6 @@
       });
     });
   </script>
-
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
