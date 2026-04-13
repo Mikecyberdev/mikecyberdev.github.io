@@ -7,6 +7,9 @@
   <title>Mike Cyber Dev | Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="64x64" href="./src/assets/images/favicon.png">
   <link rel="stylesheet" href="./src/output.css" />
 </head>
@@ -138,73 +141,87 @@
     </section>
 
     <section id="about" class="relative flex min-h-screen items-center px-6 py-20">
-      <div class="absolute inset-0 bg-black/55"></div>
+  <div class="absolute inset-0 bg-black/55"></div>
 
-      <div class="relative z-10 mx-auto w-full max-w-6xl overflow-hidden">
-        <div
-          class="grid items-center gap-10 rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:grid-cols-2 md:p-12">
-
-          <!-- Picture side -->
-          <div class="flex justify-center" data-aos="zoom-in">
-            <div class="w-full max-w-sm rounded-3xl border border-cyan-400/20 bg-white/5 p-4 shadow-xl">
-              <div class="flex aspect-[4/5] items-center justify-center overflow-hidden rounded-2xl bg-white/5">
-                <div class="flex h-full w-full items-center justify-center bg-white/5 text-center text-gray-400">
-                  Add Your Picture Here
-                </div>
-              </div>
-
-              <div class="mt-4 text-center">
-                <h3 class="text-xl font-bold text-cyan-400">Michael Ndukwe Junior .O.</h3>
-                <p class="mt-2 text-sm text-gray-300">
-                  Frontend Developer • Fullstack in Training • Cybersecurity Learner
-                </p>
-              </div>
-            </div>
+  <div class="relative z-10 mx-auto w-full max-w-6xl">
+    <div
+      class="grid items-center gap-10 rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:grid-cols-2 md:p-12"
+      data-aos="fade-up"
+    >
+      <!-- Picture side -->
+      <div class="flex justify-center" data-aos="zoom-in" data-aos-delay="100">
+        <div class="w-full max-w-sm rounded-3xl border border-cyan-400/15 bg-white/5 p-5 shadow-xl backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30 hover:shadow-cyan-500/10">
+          <div class="overflow-hidden rounded-2xl border border-white/10">
+            <img
+              src="./src/assets/images/profile.png"
+              alt="Ndukwe Michael Okorie Junior"
+              class="h-[420px] w-full object-cover"
+            />
           </div>
 
-          <!-- Text side -->
-          <div data-aos="fade-left">
-            <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400">
-              About Me
+          <div class="mt-5 text-center">
+            <h3 class="text-xl font-bold text-cyan-400 md:text-2xl">
+              Ndukwe Michael Okorie Junior
+            </h3>
+            <p class="mt-2 text-sm leading-7 text-gray-300">
+              Frontend Developer • Fullstack in Training • Cybersecurity Learner
             </p>
-
-            <h2 class="mb-6 text-3xl font-bold leading-tight md:text-4xl">
-              Building clean interfaces with a security-conscious mindset.
-            </h2>
-
-            <p class="mb-4 text-sm leading-8 text-gray-200 md:text-base">
-              I am a student and fast learner with a strong interest in frontend web
-              development, full stack engineering, and cybersecurity.
-            </p>
-
-            <p class="mb-4 text-sm leading-8 text-gray-300 md:text-base">
-              I enjoy building clean portfolio-style interfaces and growing my skills
-              in PHP, Python, ethical hacking, penetration testing, and network
-              mapping.
-            </p>
-
-            <p class="text-sm leading-8 text-gray-300 md:text-base">
-              My goal is to combine modern web development with security awareness so
-              I can build useful, responsive, and safer digital experiences.
-            </p>
-
-            <div class="mt-8 flex flex-wrap gap-3">
-              <span
-                class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">Frontend
-                Development</span>
-              <span
-                class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">Fullstack
-                Learning</span>
-              <span
-                class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">Cybersecurity</span>
-              <span
-                class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">Network
-                Mapping</span>
-            </div>
           </div>
         </div>
       </div>
-    </section>
+
+      <!-- Text side -->
+      <div data-aos="fade-up" data-aos-delay="200">
+        <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400">
+          About Me
+        </p>
+
+        <h2 class="mb-6 text-2xl font-bold leading-tight md:text-4xl">
+          Building clean interfaces with a security-conscious mindset.
+        </h2>
+
+        <p class="mb-4 text-sm leading-8 text-gray-200 md:text-base">
+          I am a student and fast learner with a strong interest in frontend web
+          development, full stack engineering, and cybersecurity.
+        </p>
+
+        <p class="mb-4 text-sm leading-8 text-gray-300 md:text-base">
+          I enjoy building clean portfolio-style interfaces and growing my skills
+          in PHP, Python, ethical hacking, penetration testing, and network
+          mapping.
+        </p>
+
+        <p class="text-sm leading-8 text-gray-300 md:text-base">
+          My goal is to combine modern web development with security awareness so
+          I can build useful, responsive, and safer digital experiences.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <span
+            class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20"
+          >
+            Frontend Development
+          </span>
+          <span
+            class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20"
+          >
+            Fullstack Learning
+          </span>
+          <span
+            class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20"
+          >
+            Cybersecurity
+          </span>
+          <span
+            class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20"
+          >
+            Network Mapping
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section id="skills" class="relative flex min-h-screen items-center px-6 py-20">
       <div class="absolute inset-0 bg-black/55"></div>
@@ -311,7 +328,7 @@
 
           <div class="grid gap-6 md:grid-cols-3">
             <!-- Project 1 -->
-            <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg " data-aos="fade-up"
+            <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10" data-aos="fade-up"
               data-aos-delay="100">
               <div class="mb-5 flex items-center gap-3">
                 <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
@@ -339,7 +356,7 @@
             </article>
 
             <!-- Project 2 -->
-            <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg" data-aos="fade-up"
+            <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10" data-aos="fade-up"
               data-aos-delay="200">
               <div class="mb-5 flex items-center gap-3">
                 <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
@@ -367,7 +384,7 @@
             </article>
 
             <!-- Project 3 -->
-            <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg" data-aos="fade-up"
+            <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10" data-aos="fade-up"
               data-aos-delay="300">
               <div class="mb-5 flex items-center gap-3">
                 <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
@@ -434,7 +451,7 @@
 
               <div class="space-y-4">
                 <a href="https://wa.me/2349126504455" target="_blank"
-                  class="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition hover:border-cyan-400 hover:bg-cyan-400/10">
+                  class="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-400/10">
                   <i class="fa-brands fa-whatsapp text-lg text-cyan-400"></i>
                   <div>
                     <p class="font-medium text-white">Chat on WhatsApp</p>
@@ -443,7 +460,7 @@
                 </a>
 
                 <a href="https://github.com/Mikecyberdev" target="_blank"
-                  class="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition hover:border-cyan-400 hover:bg-cyan-400/10">
+                  class="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-400/10">
                   <i class="fa-brands fa-github text-lg text-cyan-400"></i>
                   <div>
                     <p class="font-medium text-white">View GitHub</p>
@@ -452,7 +469,7 @@
                 </a>
 
                 <a href="https://www.linkedin.com/in/ndukwe-michael-241b89402/" target="_blank"
-                  class="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition hover:border-cyan-400 hover:bg-cyan-400/10">
+                  class="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-400/10">
                   <i class="fa-brands fa-linkedin text-lg text-cyan-400"></i>
                   <div>
                     <p class="font-medium text-white">Connect on LinkedIn</p>
