@@ -16,25 +16,63 @@
 
 
 <script>
-  window.addEventListener("load", function () {
+  document.addEventListener("DOMContentLoaded", function () {
     const preloader = document.getElementById("preloader");
     const pageContent = document.getElementById("page-content");
+    const loadToast = document.getElementById("load-toast");
+    const loaderStatus = document.getElementById("loader-status");
 
-    document.body.classList.add("loading");
+    const loaderMessages = [
+      "Initializing portfolio...",
+      "Loading developer modules...",
+      "Security layer active...",
+      "Access granted..."
+    ];
 
-    setTimeout(() => {
-      preloader.classList.add("opacity-0", "pointer-events-none");
-      pageContent.classList.remove("opacity-0");
+    let loaderIndex = 0;
+
+    const loaderInterval = setInterval(() => {
+      if (loaderStatus) {
+        loaderIndex = (loaderIndex + 1) % loaderMessages.length;
+        loaderStatus.textContent = loaderMessages[loaderIndex];
+      }
+    }, 600);
+
+    function hideLoader() {
+      clearInterval(loaderInterval);
+
+      if (preloader) {
+        preloader.classList.add("opacity-0", "pointer-events-none");
+      }
+
+      if (pageContent) {
+        pageContent.classList.remove("opacity-0");
+      }
+
       document.body.classList.remove("loading");
 
       setTimeout(() => {
-        preloader.style.display = "none";
+        if (preloader) {
+          preloader.style.display = "none";
+        }
+
+        if (loadToast) {
+          loadToast.classList.remove("opacity-0", "translate-y-4");
+          loadToast.classList.add("opacity-100", "translate-y-0");
+
+          setTimeout(() => {
+            loadToast.classList.remove("opacity-100", "translate-y-0");
+            loadToast.classList.add("opacity-0", "translate-y-4");
+          }, 2800);
+        }
       }, 700);
-    }, 1500);
+    }
+
+    setTimeout(hideLoader, 2500);
   });
 </script>
 
-<body class="text-white scroll-smooth">
+<body class="loading text-white scroll-smooth">
 
 <div
   id="preloader"
@@ -43,16 +81,30 @@
   <img
     src="./src/assets/images/logo-nav.png"
     alt="Mike Cyber Dev Logo"
-    class="mb-6 w-40 animate-pulse"
+    class="mb-6 w-40 float-slow"
   />
 
-  <p class="font-heading text-sm uppercase tracking-[0.3em] text-cyan-400">
-    Loading Portfolio...
+  <p class="font-heading text-xs uppercase tracking-[0.35em] text-cyan-400">
+    Secure Interface Boot
   </p>
 
-  <div class="mt-6 h-1 w-48 overflow-hidden rounded-full bg-white/10">
+  <p
+    id="loader-status"
+    class="mt-4 text-sm text-gray-300 md:text-base"
+  >
+    Initializing portfolio...
+  </p>
+
+  <div class="mt-6 h-1 w-56 overflow-hidden rounded-full bg-white/10">
     <div class="loading-bar h-full w-1/2 rounded-full bg-cyan-400"></div>
   </div>
+</div>
+
+<div
+  id="load-toast"
+  class="pointer-events-none fixed left-1/2 top-24 z-[9998] w-max max-w-[90%] -translate-x-1/2 translate-y-4 rounded-xl border border-cyan-400/20 bg-black/70 px-4 py-3 text-sm text-cyan-300 opacity-0 shadow-xl backdrop-blur-md transition-all duration-500"
+>
+  Access granted. Portfolio ready.
 </div>
 
 <div id="page-content" class="opacity-0 transition-opacity duration-700">
