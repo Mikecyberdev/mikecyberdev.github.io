@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="icon" type="image/png" sizes="64x64" href="./src/assets/images/favicon.png">
   <link rel="stylesheet" href="./src/output.css" />
 </head>
@@ -103,754 +105,784 @@
 
 <body class="loading text-white scroll-smooth">
 
-<div
-  id="preloader"
-  class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050816] transition-opacity duration-700"
->
-  <img
-    src="./src/assets/images/logo-nav.png"
-    alt="Mike Cyber Dev Logo"
-    class="mb-6 w-40 float-slow"
-  />
+  <div id="preloader"
+    class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050816] transition-opacity duration-700">
+    <img src="./src/assets/images/logo-nav.png" alt="Mike Cyber Dev Logo" class="mb-6 w-40 float-slow" />
 
-  <p class="font-heading text-xs uppercase tracking-[0.35em] text-cyan-400">
-    Secure Interface Boot
-  </p>
+    <p class="font-heading text-xs uppercase tracking-[0.35em] text-cyan-400">
+      Secure Interface Boot
+    </p>
 
-  <p
-    id="loader-status"
-    class="mt-4 text-sm text-gray-300 md:text-base"
-  >
-    Initializing portfolio...
-  </p>
+    <p id="loader-status" class="mt-4 text-sm text-gray-300 md:text-base">
+      Initializing portfolio...
+    </p>
 
-  <div class="mt-6 h-1 w-56 overflow-hidden rounded-full bg-white/10">
-    <div class="loading-bar h-full w-1/2 rounded-full bg-cyan-400"></div>
+    <div class="mt-6 h-1 w-56 overflow-hidden rounded-full bg-white/10">
+      <div class="loading-bar h-full w-1/2 rounded-full bg-cyan-400"></div>
+    </div>
   </div>
-</div>
 
-<div
-  id="load-toast"
-  class="pointer-events-none fixed left-1/2 top-24 z-[9998] w-max max-w-[90%] -translate-x-1/2 translate-y-4 rounded-xl border border-cyan-400/20 bg-black/70 px-4 py-3 text-sm text-cyan-300 opacity-0 shadow-xl backdrop-blur-md transition-all duration-500"
->
-  Access granted. Portfolio ready.
-</div>
+  <div id="load-toast"
+    class="pointer-events-none fixed left-1/2 top-24 z-[9998] w-max max-w-[90%] -translate-x-1/2 translate-y-4 rounded-xl border border-cyan-400/20 bg-black/70 px-4 py-3 text-sm text-cyan-300 opacity-0 shadow-xl backdrop-blur-md transition-all duration-500">
+    Access granted. Portfolio ready.
+  </div>
 
-<div id="page-content" class="opacity-0 transition-opacity duration-700">
-  <!-- all your navbar, sections, footer go here -->
-   <header class="fixed left-0 right-0 top-4 z-50 px-4">
-    <nav
-      class="mx-auto w-full max-w-6xl rounded-2xl border border-cyan-400/15 bg-black/30 px-4 py-4 shadow-xl backdrop-blur-md md:px-6">
-      <div class="flex items-center justify-between">
-        <a href="#hero" class="flex items-center gap-3">
-          <img src="./src/assets/images/logo-nav.png" alt="Mike Cyber Dev Logo"
-            class="float-slow h-12 w-auto md:h-14" />
-        </a>
-
-        <div class="hidden items-center gap-6 md:flex">
-          <ul class="flex items-center gap-8 text-sm md:text-base">
-            <li>
-              <a href="#hero" class="font-heading nav-link transition hover:text-cyan-400">Home</a>
-            </li>
-            <li>
-              <a href="#about" class="font-heading nav-link transition hover:text-cyan-400">About</a>
-            </li>
-            <li>
-              <a href="#skills" class="font-heading v-link transition hover:text-cyan-400">Skills</a>
-            </li>
-            <li>
-              <a href="#projects" class="font-heading nav-link transition hover:text-cyan-400">Projects</a>
-            </li>
-            <li>
-              <a href="#contact" class="font-heading nav-link transition hover:text-cyan-400">Contact</a>
-            </li>
-          </ul>
-
-          <a href="./public/files/Ndukwe_Michael_Okorie_Junior_CV.pdf"
-            class="font-heading inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-4 py-2 text-sm font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400">
-            <i class="fa-solid fa-download"></i>
-            Download CV
+  <div id="page-content" class="opacity-0 transition-opacity duration-700">
+    <!-- all your navbar, sections, footer go here -->
+    <header class="fixed left-0 right-0 top-4 z-50 px-4">
+      <nav
+        class="mx-auto w-full max-w-6xl rounded-2xl border border-cyan-400/15 bg-black/30 px-4 py-4 shadow-xl backdrop-blur-md md:px-6">
+        <div class="flex items-center justify-between">
+          <a href="#hero" class="flex items-center gap-3">
+            <img src="./src/assets/images/logo-nav.png" alt="Mike Cyber Dev Logo"
+              class="float-slow h-12 w-auto md:h-14" />
           </a>
-        </div>
 
-        <button id="menu-btn" class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-3 text-white transition hover:border-cyan-400 hover:text-cyan-400 md:hidden" aria-label="Open menu" type="button">
-          <i id="menu-icon" class="fa-solid fa-bars text-lg transition duration-300"></i>
-        </button>
-      </div>
-
-<div
-  id="mobile-menu"
-  class="max-h-0 overflow-hidden border-t border-white/0 pt-0 opacity-0 transition-all duration-300 ease-in-out md:hidden"
->
-  <ul class="flex flex-col gap-3 text-sm">
-    <li>
-      <a
-        href="#hero"
-        class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
-      >
-        Home
-      </a>
-    </li>
-    <li>
-      <a
-        href="#about"
-        class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
-      >
-        About
-      </a>
-    </li>
-    <li>
-      <a
-        href="#skills"
-        class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
-      >
-        Skills
-      </a>
-    </li>
-    <li>
-      <a
-        href="#projects"
-        class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
-      >
-        Projects
-      </a>
-    </li>
-    <li>
-      <a
-        href="#contact"
-        class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
-      >
-        Contact
-      </a>
-    </li>
-    <li class="pt-2">
-      <a
-        href="./public/files/Mike_CV.pdf"
-        class="font-heading inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 px-4 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-cyan-400"
-      >
-        <i class="fa-solid fa-download"></i>
-        Download CV
-      </a>
-    </li>
-  </ul>
-</div>
-    </nav>
-  </header>
-
-  <main>
-    <section id="hero" class="relative flex min-h-screen items-center overflow-hidden px-6 pt-24">
-      <div class="absolute inset-0 bg-black/45"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-[#050816]/95 via-[#12032c]/75 to-transparent"></div>
-      <div class="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-8 md:grid-cols-2">
-        <div class="max-w-2xl" data-aos="fade-up">
-          <p class="mb-3 text-sm uppercase tracking-[0.25em] text-cyan-400">
-            Frontend Developer • Fullstack in Training • Cybersecurity Student
-          </p>
-
-          <h1 class="font-heading max-w-3xl text-3xl font-bold leading-tight md:text-5xl">
-            Building modern web interfaces with a growing security mindset.
-          </h1>
-
-          <p class="mt-4 max-w-2xl text-sm leading-7 text-gray-200 md:text-base">
-            I am a student, an enthusiast, and a fast learner focused on frontend web development while growing into
-            full stack development and cybersecurity.
-          </p>
-
-          <div class="mt-6 flex flex-wrap gap-4 ">
-            <a href="#projects"
-              class="font-heading rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400">
-              View Projects
-            </a>
+          <div class="hidden items-center gap-6 md:flex">
+            <ul class="flex items-center gap-8 text-sm md:text-base">
+              <li>
+                <a href="#hero" class="font-heading nav-link transition hover:text-cyan-400">Home</a>
+              </li>
+              <li>
+                <a href="#about" class="font-heading nav-link transition hover:text-cyan-400">About</a>
+              </li>
+              <li>
+                <a href="#skills" class="font-heading v-link transition hover:text-cyan-400">Skills</a>
+              </li>
+              <li>
+                <a href="#projects" class="font-heading nav-link transition hover:text-cyan-400">Projects</a>
+              </li>
+              <li>
+                <a href="#contact" class="font-heading nav-link transition hover:text-cyan-400">Contact</a>
+              </li>
+            </ul>
 
             <a href="./public/files/Ndukwe_Michael_Okorie_Junior_CV.pdf"
-              class="font-heading rounded-xl border border-cyan-400 px-6 py-3 font-semibold text-cyan-400 transition duration-300 hover:-translate-y-1 hover:bg-cyan-400 hover:text-black">
+              class="font-heading inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-4 py-2 text-sm font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400">
+              <i class="fa-solid fa-download"></i>
               Download CV
             </a>
           </div>
+
+          <button id="menu-btn"
+            class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-3 text-white transition hover:border-cyan-400 hover:text-cyan-400 md:hidden"
+            aria-label="Open menu" type="button">
+            <i id="menu-icon" class="fa-solid fa-bars text-lg transition duration-300"></i>
+          </button>
         </div>
 
-        <div></div>
-      </div>
-    </section>
+        <div id="mobile-menu"
+          class="max-h-0 overflow-hidden border-t border-white/0 pt-0 opacity-0 transition-all duration-300 ease-in-out md:hidden">
+          <ul class="flex flex-col gap-3 text-sm">
+            <li>
+              <a href="#hero"
+                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#about"
+                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#skills"
+                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
+                Skills
+              </a>
+            </li>
+            <li>
+              <a href="#projects"
+                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="#contact"
+                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
+                Contact
+              </a>
+            </li>
+            <li class="pt-2">
+              <a href="./public/files/Mike_CV.pdf"
+                class="font-heading inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 px-4 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-cyan-400">
+                <i class="fa-solid fa-download"></i>
+                Download CV
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
-    <section id="about" class="relative flex min-h-screen items-center px-6 py-20">
-  <div class="absolute inset-0 bg-black/55"></div>
-
-  <div class="relative z-10 mx-auto w-full max-w-6xl">
-    <div
-      class="grid items-center gap-10 rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:grid-cols-2 md:p-12"
-      data-aos="fade-up"
-    >
-      <!-- Picture side -->
-      <div class="flex justify-center" data-aos="zoom-in" data-aos-delay="100">
-        <div class="w-full max-w-sm rounded-3xl border border-cyan-400/15 bg-white/5 p-5 shadow-xl backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30 hover:shadow-cyan-500/10">
-          <div class="about-image-card overflow-hidden rounded-2xl border border-white/10">
-            <img
-              src="./src/assets/images/profile.jpg"
-              alt="Ndukwe Michael Okorie Junior"
-              class="h-[420px] w-full object-cover"
-            />
-          </div>
-
-          <div class="mt-5 text-center">
-            <h3 class="text-xl font-bold text-cyan-400 md:text-2xl">
-              Ndukwe Michael Okorie Junior
-            </h3>
-            <p class="mt-2 text-sm leading-7 text-gray-300">
+    <main>
+      <section id="hero" class="relative flex min-h-screen items-center overflow-hidden px-6 pt-24">
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#050816]/95 via-[#12032c]/75 to-transparent"></div>
+        <div class="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-8 md:grid-cols-2">
+          <div class="max-w-2xl" data-aos="fade-up">
+            <p class="mb-3 text-sm uppercase tracking-[0.25em] text-cyan-400">
               Frontend Developer • Fullstack in Training • Cybersecurity Student
             </p>
+
+            <h1 class="font-heading max-w-3xl text-3xl font-bold leading-tight md:text-5xl">
+              Building modern web interfaces with a growing security mindset.
+            </h1>
+
+            <p class="mt-4 max-w-2xl text-sm leading-7 text-gray-200 md:text-base">
+              I am a student, an enthusiast, and a fast learner focused on frontend web development while growing into
+              full stack development and cybersecurity.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-4 ">
+              <a href="#projects"
+                class="font-heading rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400">
+                View Projects
+              </a>
+
+              <a href="./public/files/Ndukwe_Michael_Okorie_Junior_CV.pdf"
+                class="font-heading rounded-xl border border-cyan-400 px-6 py-3 font-semibold text-cyan-400 transition duration-300 hover:-translate-y-1 hover:bg-cyan-400 hover:text-black">
+                Download CV
+              </a>
+            </div>
           </div>
+
+          <div></div>
         </div>
-      </div>
+      </section>
 
-      <!-- Text side -->
-      <div data-aos="fade-up" data-aos-delay="200">
-        <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400">
-          About Me
-        </p>
+      <section id="about" class="relative flex min-h-screen items-center px-6 py-20">
+        <div class="absolute inset-0 bg-black/55"></div>
 
-        <h2 class="font-heading mb-6 text-2xl font-bold leading-tight md:text-4xl">
-          Building clean interfaces with a security-conscious mindset.
-        </h2>
-
-        <p class="mb-4 text-sm leading-8 text-gray-200 md:text-base">
-          I am a student and fast learner with a strong interest in frontend web
-          development, full stack engineering, and cybersecurity.
-        </p>
-
-        <p class="mb-4 text-sm leading-8 text-gray-300 md:text-base">
-          I enjoy building clean portfolio-style interfaces and growing my skills
-          in PHP, Python, ethical hacking, penetration testing, and network
-          mapping.
-        </p>
-
-        <p class="text-sm leading-8 text-gray-300 md:text-base">
-          My goal is to combine modern web development with security awareness so
-          I can build useful, responsive, and safer digital experiences.
-        </p>
-
-        <div class="mt-8 flex flex-wrap gap-3">
-          <span
-            class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20"
-          >
-            Frontend Development
-          </span>
-          <span
-            class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20"
-          >
-            Fullstack Learning
-          </span>
-          <span
-            class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20"
-          >
-            Cybersecurity
-          </span>
-          <span
-            class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20"
-          >
-            Network Mapping
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section id="skills" class="relative flex min-h-screen items-center px-6 py-20">
-      <div class="absolute inset-0 bg-black/55"></div>
-
-      <div class="relative z-10 mx-auto w-full max-w-6xl">
-        <div class="rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:p-12"
-          data-aos="fade-up">
-          <div class="mb-12">
-            <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400" data-aos="fade-up" data-aos-delay="100">
-              Skills
-            </p>
-
-            <h2 class="font-heading text-3xl font-bold leading-tight md:text-4xl" data-aos="fade-up" data-aos-delay="150">
-              My technical stack and learning path.
-            </h2>
-
-            <p class="mt-4 max-w-2xl text-sm leading-8 text-gray-300 md:text-base" data-aos="fade-up"
-              data-aos-delay="200">
-              These are the technologies I currently use, the areas I am building on,
-              and the cybersecurity foundations I am actively growing in.
-            </p>
-          </div>
-
-          <div class="grid gap-6 md:grid-cols-3">
-            <!-- Frontend -->
-            <article
-              class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-cyan-500/10"
-              data-aos="fade-up" data-aos-delay="100">
-              <div class="mb-5 flex items-center gap-3">
-                <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
-                  <i class="fa-solid fa-code text-lg"></i>
+        <div class="relative z-10 mx-auto w-full max-w-6xl">
+          <div
+            class="grid items-center gap-10 rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:grid-cols-2 md:p-12"
+            data-aos="fade-up">
+            <!-- Picture side -->
+            <div class="flex justify-center" data-aos="zoom-in" data-aos-delay="100">
+              <div
+                class="w-full max-w-sm rounded-3xl border border-cyan-400/15 bg-white/5 p-5 shadow-xl backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30 hover:shadow-cyan-500/10">
+                <div class="about-image-card overflow-hidden rounded-2xl border border-white/10">
+                  <img src="./src/assets/images/profile.jpg" alt="Ndukwe Michael Okorie Junior"
+                    class="h-[420px] w-full object-cover" />
                 </div>
-                <h3 class="text-2xl font-semibold">Frontend</h3>
-              </div>
 
-              <ul class="space-y-3 text-sm text-gray-200 md:text-base">
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">HTML</li>
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">CSS</li>
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Tailwind CSS</li>
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">JavaScript</li>
-              </ul>
-            </article>
-
-            <!-- Learning -->
-            <article
-              class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-cyan-500/10"
-              data-aos="fade-up" data-aos-delay="200">
-              <div class="mb-5 flex items-center gap-3">
-                <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
-                  <i class="fa-solid fa-laptop-code text-lg"></i>
+                <div class="mt-5 text-center">
+                  <h3 class="text-xl font-bold text-cyan-400 md:text-2xl">
+                    Ndukwe Michael Okorie Junior
+                  </h3>
+                  <p class="mt-2 text-sm leading-7 text-gray-300">
+                    Frontend Developer • Fullstack in Training • Cybersecurity Student
+                  </p>
                 </div>
-                <h3 class="text-2xl font-semibold">Learning</h3>
-              </div>
-
-              <ul class="space-y-3 text-sm text-gray-200 md:text-base">
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">React</li>
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">PHP</li>
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Python</li>
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Fullstack Development</li>
-              </ul>
-            </article>
-
-            <!-- Cybersecurity -->
-            <article
-              class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-cyan-500/10"
-              data-aos="fade-up" data-aos-delay="300">
-              <div class="mb-5 flex items-center gap-3">
-                <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
-                  <i class="fa-solid fa-shield-halved text-lg"></i>
-                </div>
-                <h3 class="text-2xl font-semibold">Cybersecurity</h3>
-              </div>
-
-              <ul class="space-y-3 text-sm text-gray-200 md:text-base">
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Penetration Testing</li>
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Ethical Hacking</li>
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Network Mapping</li>
-                <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">SOC Fundamentals</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="relative flex min-h-screen items-center px-6 py-20">
-      <div class="absolute inset-0 bg-black/55"></div>
-
-      <div class="relative z-10 mx-auto w-full max-w-6xl">
-        <div class="rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:p-12"
-          data-aos="fade-up">
-          <div class="mb-12" data-aos="fade-up">
-            <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400">
-              Projects
-            </p>
-            <h2 class="font-heading text-3xl font-bold leading-tight md:text-4xl">
-              Some of the work I have built and explored.
-            </h2>
-            <p class="mt-4 max-w-2xl text-sm leading-8 text-gray-300 md:text-base">
-              These projects reflect my growth in frontend development, full stack
-              learning, and cybersecurity-focused practice.
-            </p>
-          </div>
-
-          <div class="grid gap-6 md:grid-cols-3">
-            <!-- Project 1 -->
-            <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10" data-aos="fade-up"
-              data-aos-delay="100">
-              <div class="mb-5 flex items-center gap-3">
-                <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
-                  <i class="fa-solid fa-laptop-code text-lg"></i>
-                </div>
-                <h3 class="text-2xl font-semibold">Portfolio Website</h3>
-              </div>
-
-              <p class="mb-6 text-sm leading-8 text-gray-300 md:text-base">
-                My personal portfolio website built to showcase my skills, projects,
-                and growth in web development and cybersecurity.
-              </p>
-
-              <div class="flex flex-wrap gap-2">
-                <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
-                  HTML
-                </span>
-                <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
-                  Tailwind CSS
-                </span>
-                <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
-                  JavaScript
-                </span>
-              </div>
-            </article>
-
-            <!-- Project 2 -->
-            <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10" data-aos="fade-up"
-              data-aos-delay="200">
-              <div class="mb-5 flex items-center gap-3">
-                <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
-                  <i class="fa-solid fa-building text-lg"></i>
-                </div>
-                <h3 class="text-2xl font-semibold">Estate Project</h3>
-              </div>
-
-              <p class="mb-6 text-sm leading-8 text-gray-300 md:text-base">
-                An ongoing project focused on solving real estate-related needs with
-                a clean and user-friendly web interface.
-              </p>
-
-              <div class="flex flex-wrap gap-2">
-                <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
-                  In Progress
-                </span>
-                <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
-                  UI Design
-                </span>
-                <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
-                  Web Interface
-                </span>
-              </div>
-            </article>
-
-            <!-- Project 3 -->
-            <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10" data-aos="fade-up"
-              data-aos-delay="300">
-              <div class="mb-5 flex items-center gap-3">
-                <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
-                  <i class="fa-solid fa-shield-halved text-lg"></i>
-                </div>
-                <h3 class="text-2xl font-semibold">Android Security Testing Lab</h3>
-              </div>
-
-              <p class="mb-6 text-sm leading-8 text-gray-300 md:text-base">
-                A controlled learning project focused on understanding mobile
-                security concepts, authorized testing workflows, and security
-                awareness.
-              </p>
-
-              <div class="flex flex-wrap gap-2">
-                <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
-                  Security Research
-                </span>
-                <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
-                  Lab Practice
-                </span>
-                <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
-                  Mobile Security
-                </span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="relative flex min-h-screen items-center px-6 py-24">
-      <div class="absolute inset-0 bg-black/60"></div>
-
-      <div class="relative z-10 mx-auto w-full max-w-6xl" data-aos="fade-up">
-        <div
-          class="rounded-3xl border border-white/10 bg-black/30 p-8 shadow-2xl backdrop-blur-md md:p-12 overflow-hidden">
-
-          <!-- Heading -->
-          <div class="mb-12 text-center " data-aos="fade-up">
-            <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400">
-              Contact
-            </p>
-            <h2 class="text-3xl font-bold leading-tight md:text-4xl">
-              Let’s Build Something Great
-            </h2>
-            <p class="mx-auto mt-4 max-w-2xl text-sm leading-8 text-gray-300 md:text-base">
-              Have a project, collaboration, internship opportunity, or just want to
-              connect? Send me a message or reach out through my social platforms.
-            </p>
-          </div>
-
-          <!-- Main content -->
-          <div class="grid gap-8 md:grid-cols-2">
-
-            <!-- Left info panel -->
-            <div class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg" data-aos="fade-right">
-              <h3 class="mb-4 text-2xl font-semibold text-cyan-400">Get In Touch</h3>
-
-              <p class="mb-6 text-sm leading-8 text-gray-300 md:text-base">
-                I’m open to internships, freelance work, collaborations, and
-                learning opportunities in web development and cybersecurity.
-              </p>
-
-              <div class="space-y-4">
-                <a href="https://wa.me/2349126504455" target="_blank"
-                  class="font-heading flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-400/10">
-                  <i class="fa-brands fa-whatsapp text-lg text-cyan-400"></i>
-                  <div>
-                    <p class="font-medium text-white">Chat on WhatsApp</p>
-                    <p class="text-sm text-gray-400">Fastest way to reach me</p>
-                  </div>
-                </a>
-
-                <a href="https://github.com/Mikecyberdev" target="_blank"
-                  class="font-heading flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-400/10">
-                  <i class="fa-brands fa-github text-lg text-cyan-400"></i>
-                  <div>
-                    <p class="font-medium text-white">View GitHub</p>
-                    <p class="text-sm text-gray-400">See my code and projects</p>
-                  </div>
-                </a>
-
-                <a href="https://www.linkedin.com/in/ndukwe-michael-241b89402/" target="_blank"
-                  class="font-heading flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-400/10">
-                  <i class="fa-brands fa-linkedin text-lg text-cyan-400"></i>
-                  <div>
-                    <p class="font-medium text-white">Connect on LinkedIn</p>
-                    <p class="text-sm text-gray-400">Professional networking</p>
-                  </div>
-                </a>
               </div>
             </div>
 
-            <!-- Right form panel -->
-            <form
-  id="contact-form"
-  action="https://formspree.io/f/mqewzoby"
-  method="POST"
-  class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg"
-  data-aos="fade-left"
->
-  <div class="mb-5">
-    <label for="email" class="mb-2 block text-sm font-medium text-gray-200">
-      Email
-    </label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="Enter your email"
-      required
-      class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-400 focus:border-cyan-400 focus:bg-black/30"
-    />
-  </div>
+            <!-- Text side -->
+            <div data-aos="fade-up" data-aos-delay="200">
+              <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400">
+                About Me
+              </p>
 
-  <div class="mb-5">
-    <label for="number" class="mb-2 block text-sm font-medium text-gray-200">
-      Phone Number
-    </label>
-    <input
-      type="tel"
-      id="number"
-      name="phone"
-      placeholder="Enter your phone number"
-      class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-400 focus:border-cyan-400 focus:bg-black/30"
-    />
-  </div>
+              <h2 class="font-heading mb-6 text-2xl font-bold leading-tight md:text-4xl">
+                Building clean interfaces with a security-conscious mindset.
+              </h2>
 
-  <div class="mb-6">
-    <label for="message" class="mb-2 block text-sm font-medium text-gray-200">
-      Message
-    </label>
-    <textarea
-      id="message"
-      name="message"
-      rows="6"
-      placeholder="Write your message here..."
-      required
-      class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-400 focus:border-cyan-400 focus:bg-black/30"
-    ></textarea>
-  </div>
+              <p class="mb-4 text-sm leading-8 text-gray-200 md:text-base">
+                I am a student and fast learner with a strong interest in frontend web
+                development, full stack engineering, and cybersecurity.
+              </p>
 
-  <input type="hidden" name="_subject" value="New portfolio contact message" />
+              <p class="mb-4 text-sm leading-8 text-gray-300 md:text-base">
+                I enjoy building clean portfolio-style interfaces and growing my skills
+                in PHP, Python, ethical hacking, penetration testing, and network
+                mapping.
+              </p>
 
-  <button
-    id="submit-btn"
-    type="submit"
-    data-aos="fade-up"
-    data-aos-delay="200"
-    class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400 disabled:cursor-not-allowed disabled:opacity-70"
-  >
-    <i class="fa-solid fa-paper-plane"></i>
-    <span id="submit-btn-text">Send Message</span>
-  </button>
+              <p class="text-sm leading-8 text-gray-300 md:text-base">
+                My goal is to combine modern web development with security awareness so
+                I can build useful, responsive, and safer digital experiences.
+              </p>
 
-  <p
-    id="form-status"
-    class="mt-4 hidden rounded-xl border border-cyan-400/20 bg-cyan-400/10 px-4 py-3 text-sm text-cyan-300"
-  ></p>
-</form>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <span
+                  class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20">
+                  Frontend Development
+                </span>
+                <span
+                  class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20">
+                  Fullstack Learning
+                </span>
+                <span
+                  class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20">
+                  Cybersecurity
+                </span>
+                <span
+                  class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20">
+                  Network Mapping
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="relative flex min-h-screen items-center px-6 py-20">
+        <div class="absolute inset-0 bg-black/55"></div>
+
+        <div class="relative z-10 mx-auto w-full max-w-6xl">
+          <div class="rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:p-12"
+            data-aos="fade-up">
+            <div class="mb-12">
+              <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400" data-aos="fade-up" data-aos-delay="100">
+                Skills
+              </p>
+
+              <h2 class="font-heading text-3xl font-bold leading-tight md:text-4xl" data-aos="fade-up"
+                data-aos-delay="150">
+                My technical stack and learning path.
+              </h2>
+
+              <p class="mt-4 max-w-2xl text-sm leading-8 text-gray-300 md:text-base" data-aos="fade-up"
+                data-aos-delay="200">
+                These are the technologies I currently use, the areas I am building on,
+                and the cybersecurity foundations I am actively growing in.
+              </p>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-3">
+              <!-- Frontend -->
+              <article
+                class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-cyan-500/10"
+                data-aos="fade-up" data-aos-delay="100">
+                <div class="mb-5 flex items-center gap-3">
+                  <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
+                    <i class="fa-solid fa-code text-lg"></i>
+                  </div>
+                  <h3 class="text-2xl font-semibold">Frontend</h3>
+                </div>
+
+                <ul class="space-y-3 text-sm text-gray-200 md:text-base">
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">HTML</li>
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">CSS</li>
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Tailwind CSS</li>
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">JavaScript</li>
+                </ul>
+              </article>
+
+              <!-- Learning -->
+              <article
+                class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-cyan-500/10"
+                data-aos="fade-up" data-aos-delay="200">
+                <div class="mb-5 flex items-center gap-3">
+                  <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
+                    <i class="fa-solid fa-laptop-code text-lg"></i>
+                  </div>
+                  <h3 class="text-2xl font-semibold">Learning</h3>
+                </div>
+
+                <ul class="space-y-3 text-sm text-gray-200 md:text-base">
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">React</li>
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">PHP</li>
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Python</li>
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Fullstack Development
+                  </li>
+                </ul>
+              </article>
+
+              <!-- Cybersecurity -->
+              <article
+                class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-cyan-500/10"
+                data-aos="fade-up" data-aos-delay="300">
+                <div class="mb-5 flex items-center gap-3">
+                  <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
+                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                  </div>
+                  <h3 class="text-2xl font-semibold">Cybersecurity</h3>
+                </div>
+
+                <ul class="space-y-3 text-sm text-gray-200 md:text-base">
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Penetration Testing</li>
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Ethical Hacking</li>
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">Network Mapping</li>
+                  <li class="rounded-lg bg-black/20 px-4 py-3 transition hover:bg-cyan-400/10">SOC Fundamentals</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="relative flex min-h-screen items-center px-6 py-20">
+        <div class="absolute inset-0 bg-black/55"></div>
+
+        <div class="relative z-10 mx-auto w-full max-w-6xl">
+          <div class="rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:p-12"
+            data-aos="fade-up">
+            <div class="mb-12" data-aos="fade-up">
+              <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400">
+                Projects
+              </p>
+              <h2 class="font-heading text-3xl font-bold leading-tight md:text-4xl">
+                Some of the work I have built and explored.
+              </h2>
+              <p class="mt-4 max-w-2xl text-sm leading-8 text-gray-300 md:text-base">
+                These projects reflect my growth in frontend development, full stack
+                learning, and cybersecurity-focused practice.
+              </p>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-3">
+              <!-- Project 1 -->
+              <article
+                class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10"
+                data-aos="fade-up" data-aos-delay="100">
+                <div class="mb-5 flex items-center gap-3">
+                  <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
+                    <i class="fa-solid fa-laptop-code text-lg"></i>
+                  </div>
+                  <h3 class="text-2xl font-semibold">Portfolio Website</h3>
+                </div>
+
+                <p class="mb-6 text-sm leading-8 text-gray-300 md:text-base">
+                  My personal portfolio website built to showcase my skills, projects,
+                  and growth in web development and cybersecurity.
+                </p>
+
+                <div class="flex flex-wrap gap-2">
+                  <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
+                    HTML
+                  </span>
+                  <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
+                    Tailwind CSS
+                  </span>
+                  <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
+                    JavaScript
+                  </span>
+                </div>
+              </article>
+
+              <!-- Project 2 -->
+              <article
+                class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10"
+                data-aos="fade-up" data-aos-delay="200">
+                <div class="mb-5 flex items-center gap-3">
+                  <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
+                    <i class="fa-solid fa-building text-lg"></i>
+                  </div>
+                  <h3 class="text-2xl font-semibold">Estate Project</h3>
+                </div>
+
+                <p class="mb-6 text-sm leading-8 text-gray-300 md:text-base">
+                  An ongoing project focused on solving real estate-related needs with
+                  a clean and user-friendly web interface.
+                </p>
+
+                <div class="flex flex-wrap gap-2">
+                  <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
+                    In Progress
+                  </span>
+                  <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
+                    UI Design
+                  </span>
+                  <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
+                    Web Interface
+                  </span>
+                </div>
+              </article>
+
+              <!-- Project 3 -->
+              <article
+                class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10"
+                data-aos="fade-up" data-aos-delay="300">
+                <div class="mb-5 flex items-center gap-3">
+                  <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
+                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                  </div>
+                  <h3 class="text-2xl font-semibold">Android Security Testing Lab</h3>
+                </div>
+
+                <p class="mb-6 text-sm leading-8 text-gray-300 md:text-base">
+                  A controlled learning project focused on understanding mobile
+                  security concepts, authorized testing workflows, and security
+                  awareness.
+                </p>
+
+                <div class="flex flex-wrap gap-2">
+                  <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
+                    Security Research
+                  </span>
+                  <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
+                    Lab Practice
+                  </span>
+                  <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300">
+                    Mobile Security
+                  </span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="relative flex min-h-screen items-center px-6 py-24">
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <div class="relative z-10 mx-auto w-full max-w-6xl" data-aos="fade-up">
+          <div
+            class="rounded-3xl border border-white/10 bg-black/30 p-8 shadow-2xl backdrop-blur-md md:p-12 overflow-hidden">
+
+            <!-- Heading -->
+            <div class="mb-12 text-center " data-aos="fade-up">
+              <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400">
+                Contact
+              </p>
+              <h2 class="text-3xl font-bold leading-tight md:text-4xl">
+                Let’s Build Something Great
+              </h2>
+              <p class="mx-auto mt-4 max-w-2xl text-sm leading-8 text-gray-300 md:text-base">
+                Have a project, collaboration, internship opportunity, or just want to
+                connect? Send me a message or reach out through my social platforms.
+              </p>
+            </div>
+
+            <!-- Main content -->
+            <div class="grid gap-8 md:grid-cols-2">
+
+              <!-- Left info panel -->
+              <div class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg" data-aos="fade-right">
+                <h3 class="mb-4 text-2xl font-semibold text-cyan-400">Get In Touch</h3>
+
+                <p class="mb-6 text-sm leading-8 text-gray-300 md:text-base">
+                  I’m open to internships, freelance work, collaborations, and
+                  learning opportunities in web development and cybersecurity.
+                </p>
+
+                <div class="space-y-4">
+                  <a href="https://wa.me/2349126504455" target="_blank"
+                    class="font-heading flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-400/10">
+                    <i class="fa-brands fa-whatsapp text-lg text-cyan-400"></i>
+                    <div>
+                      <p class="font-medium text-white">Chat on WhatsApp</p>
+                      <p class="text-sm text-gray-400">Fastest way to reach me</p>
+                    </div>
+                  </a>
+
+                  <a href="https://github.com/Mikecyberdev" target="_blank"
+                    class="font-heading flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-400/10">
+                    <i class="fa-brands fa-github text-lg text-cyan-400"></i>
+                    <div>
+                      <p class="font-medium text-white">View GitHub</p>
+                      <p class="text-sm text-gray-400">See my code and projects</p>
+                    </div>
+                  </a>
+
+                  <a href="https://www.linkedin.com/in/ndukwe-michael-241b89402/" target="_blank"
+                    class="font-heading flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-400/10">
+                    <i class="fa-brands fa-linkedin text-lg text-cyan-400"></i>
+                    <div>
+                      <p class="font-medium text-white">Connect on LinkedIn</p>
+                      <p class="text-sm text-gray-400">Professional networking</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right form panel -->
+              <form id="contact-form" action="https://formspree.io/f/mqewzoby" method="POST"
+                class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg" data-aos="fade-left">
+                <div class="mb-5">
+                  <label for="email" class="mb-2 block text-sm font-medium text-gray-200">
+                    Email
+                  </label>
+                  <input type="email" id="email" name="email" placeholder="Enter your email"
+                    class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-400 focus:border-cyan-400 focus:bg-black/30" />
+                  <p id="email-error" class="mt-2 hidden text-sm text-red-400"></p>
+                </div>
+
+                <div class="mb-5">
+                  <label for="number" class="mb-2 block text-sm font-medium text-gray-200">
+                    Phone Number
+                  </label>
+                  <input type="tel" id="number" name="phone" placeholder="Enter your phone number"
+                    class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-400 focus:border-cyan-400 focus:bg-black/30" />
+                  <p id="phone-error" class="mt-2 hidden text-sm text-red-400"></p>
+                </div>
+
+                <div class="mb-6">
+                  <label for="message" class="mb-2 block text-sm font-medium text-gray-200">
+                    Message
+                  </label>
+                  <textarea id="message" name="message" rows="6" placeholder="Write your message here..."
+                    class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-400 focus:border-cyan-400 focus:bg-black/30"></textarea>
+                  <p id="message-error" class="mt-2 hidden text-sm text-red-400"></p>
+                </div>
+
+                <input type="hidden" name="_subject" value="New portfolio contact message" />
+
+                <button id="submit-btn" type="submit" data-aos="fade-up" data-aos-delay="200"
+                  class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400 disabled:cursor-not-allowed disabled:opacity-70">
+                  <i class="fa-solid fa-paper-plane"></i>
+                  <span id="submit-btn-text">Send Message</span>
+                </button>
+
+                <p id="form-status"
+                  class="mt-4 hidden rounded-xl border border-cyan-400/20 bg-cyan-400/10 px-4 py-3 text-sm text-cyan-300">
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="relative px-6 pb-8 pt-6">
+      <div class="mx-auto w-full max-w-6xl">
+        <div class="rounded-2xl border border-white/10 bg-black/30 px-6 py-5 shadow-lg backdrop-blur-md">
+          <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+
+            <p class="text-center text-sm text-gray-400 md:text-left">
+              © 2026 Mike Cyber Dev. All rights reserved.
+            </p>
+
+            <div class="flex items-center gap-3">
+              <a href="https://github.com/Mikecyberdev" target="_blank"
+                class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400">
+                <i class="fa-brands fa-github"></i>
+              </a>
+
+              <a href="https://www.linkedin.com/in/ndukwe-michael-241b89402/" target="_blank"
+                class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+
+              <a href="#hero"
+                class="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-300 transition hover:bg-cyan-400 hover:text-black">
+                <i class="fa-solid fa-arrow-up"></i>
+                Back to Top
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-
-  <footer class="relative px-6 pb-8 pt-6">
-    <div class="mx-auto w-full max-w-6xl">
-      <div class="rounded-2xl border border-white/10 bg-black/30 px-6 py-5 shadow-lg backdrop-blur-md">
-        <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
-
-          <p class="text-center text-sm text-gray-400 md:text-left">
-            © 2026 Mike Cyber Dev. All rights reserved.
-          </p>
-
-          <div class="flex items-center gap-3">
-            <a href="https://github.com/Mikecyberdev" target="_blank"
-              class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400">
-              <i class="fa-brands fa-github"></i>
-            </a>
-
-            <a href="https://www.linkedin.com/in/ndukwe-michael-241b89402/" target="_blank"
-              class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400">
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-
-            <a href="#hero"
-              class="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-300 transition hover:bg-cyan-400 hover:text-black">
-              <i class="fa-solid fa-arrow-up"></i>
-              Back to Top
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-</div>
+    </footer>
+  </div>
   <!-- Header Section -->
 
-  
+
   <!-- Nav Link -->
 
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contact-form");
-    const submitBtn = document.getElementById("submit-btn");
-    const submitBtnText = document.getElementById("submit-btn-text");
-    const formStatus = document.getElementById("form-status");
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("contact-form");
+      const submitBtn = document.getElementById("submit-btn");
+      const submitBtnText = document.getElementById("submit-btn-text");
+      const formStatus = document.getElementById("form-status");
 
-    if (!form || !submitBtn || !submitBtnText || !formStatus) return;
+      const email = document.getElementById("email");
+      const phone = document.getElementById("number");
+      const message = document.getElementById("message");
 
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
+      const emailError = document.getElementById("email-error");
+      const phoneError = document.getElementById("phone-error");
+      const messageError = document.getElementById("message-error");
 
-      const formData = new FormData(form);
+      if (
+        !form ||
+        !submitBtn ||
+        !submitBtnText ||
+        !formStatus ||
+        !email ||
+        !phone ||
+        !message ||
+        !emailError ||
+        !phoneError ||
+        !messageError
+      ) return;
 
-      submitBtn.disabled = true;
-      submitBtnText.textContent = "Sending...";
-      formStatus.classList.add("hidden");
-      formStatus.textContent = "";
+      function showError(field, errorEl, message) {
+        field.classList.remove("border-white/10", "focus:border-cyan-400");
+        field.classList.add("border-red-400");
+        errorEl.textContent = message;
+        errorEl.classList.remove("hidden");
+      }
 
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: formData,
-          headers: {
-            Accept: "application/json",
-          },
-        });
+      function clearError(field, errorEl) {
+        field.classList.remove("border-red-400");
+        field.classList.add("border-white/10");
+        errorEl.textContent = "";
+        errorEl.classList.add("hidden");
+      }
 
-        if (response.ok) {
-          form.reset();
-          formStatus.textContent = "Message sent successfully. I will get back to you soon.";
-          formStatus.className =
-            "mt-4 rounded-xl border border-green-400/20 bg-green-400/10 px-4 py-3 text-sm text-green-300";
-        } else {
-          formStatus.textContent = "Something went wrong. Please try again.";
+      function validateEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+
+      function validatePhone(value) {
+        return /^[0-9+\-\s()]{7,20}$/.test(value);
+      }
+
+      function validateForm() {
+        let isValid = true;
+
+        clearError(email, emailError);
+        clearError(phone, phoneError);
+        clearError(message, messageError);
+
+        if (!email.value.trim()) {
+          showError(email, emailError, "Email is required.");
+          isValid = false;
+        } else if (!validateEmail(email.value.trim())) {
+          showError(email, emailError, "Enter a valid email address.");
+          isValid = false;
+        }
+
+        if (!phone.value.trim()) {
+          showError(phone, phoneError, "Phone number is required.");
+          isValid = false;
+        } else if (!validatePhone(phone.value.trim())) {
+          showError(phone, phoneError, "Enter a valid phone number.");
+          isValid = false;
+        }
+
+        if (!message.value.trim()) {
+          showError(message, messageError, "Message cannot be empty.");
+          isValid = false;
+        } else if (message.value.trim().length < 10) {
+          showError(message, messageError, "Message is too short.");
+          isValid = false;
+        }
+
+        return isValid;
+      }
+
+      email.addEventListener("input", () => clearError(email, emailError));
+      phone.addEventListener("input", () => clearError(phone, phoneError));
+      message.addEventListener("input", () => clearError(message, messageError));
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        if (!validateForm()) return;
+
+        const formData = new FormData(form);
+
+        submitBtn.disabled = true;
+        submitBtnText.textContent = "Sending...";
+        formStatus.classList.add("hidden");
+        formStatus.textContent = "";
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          if (response.ok) {
+            form.reset();
+            formStatus.textContent = "Message sent successfully. I will get back to you soon.";
+            formStatus.className =
+              "mt-4 rounded-xl border border-cyan-400/20 bg-cyan-400/10 px-4 py-3 text-sm text-cyan-300";
+          } else {
+            formStatus.textContent = "Something went wrong. Please try again.";
+            formStatus.className =
+              "mt-4 rounded-xl border border-red-400/20 bg-red-400/10 px-4 py-3 text-sm text-red-300";
+          }
+        } catch (error) {
+          formStatus.textContent = "Network error. Please check your connection and try again.";
           formStatus.className =
             "mt-4 rounded-xl border border-red-400/20 bg-red-400/10 px-4 py-3 text-sm text-red-300";
+        } finally {
+          formStatus.classList.remove("hidden");
+          submitBtn.disabled = false;
+          submitBtnText.textContent = "Send Message";
         }
-      } catch (error) {
-        formStatus.textContent = "Network error. Please check your connection and try again.";
-        formStatus.className =
-          "mt-4 rounded-xl border border-red-400/20 bg-red-400/10 px-4 py-3 text-sm text-red-300";
-      } finally {
-        formStatus.classList.remove("hidden");
-        submitBtn.disabled = false;
-        submitBtnText.textContent = "Send Message";
-      }
+      });
     });
-  });
-</script>
+  </script>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuIcon = document.getElementById("menu-icon");
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const menuIcon = document.getElementById("menu-icon");
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-link");
-    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+      if (menuBtn && mobileMenu && menuIcon) {
+        menuBtn.addEventListener("click", () => {
+          const isOpen = mobileMenu.classList.contains("max-h-96");
 
-    if (menuBtn && mobileMenu && menuIcon) {
-      menuBtn.addEventListener("click", () => {
-        const isOpen = mobileMenu.classList.contains("max-h-96");
+          if (isOpen) {
+            mobileMenu.classList.remove("max-h-96", "pt-4", "opacity-100", "border-white/10");
+            mobileMenu.classList.add("max-h-0", "pt-0", "opacity-0", "border-white/0");
 
-        if (isOpen) {
-          mobileMenu.classList.remove("max-h-96", "pt-4", "opacity-100", "border-white/10");
-          mobileMenu.classList.add("max-h-0", "pt-0", "opacity-0", "border-white/0");
+            menuIcon.classList.remove("fa-xmark");
+            menuIcon.classList.add("fa-bars");
+          } else {
+            mobileMenu.classList.remove("max-h-0", "pt-0", "opacity-0", "border-white/0");
+            mobileMenu.classList.add("max-h-96", "pt-4", "opacity-100", "border-white/10");
 
-          menuIcon.classList.remove("fa-xmark");
-          menuIcon.classList.add("fa-bars");
-        } else {
-          mobileMenu.classList.remove("max-h-0", "pt-0", "opacity-0", "border-white/0");
-          mobileMenu.classList.add("max-h-96", "pt-4", "opacity-100", "border-white/10");
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-xmark");
+          }
+        });
+      }
 
-          menuIcon.classList.remove("fa-bars");
-          menuIcon.classList.add("fa-xmark");
-        }
-      });
-    }
+      function setActiveLink() {
+        let current = "";
 
-    function setActiveLink() {
-      let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 160;
+          const sectionHeight = section.offsetHeight;
 
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 160;
-        const sectionHeight = section.offsetHeight;
+          if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+          ) {
+            current = section.getAttribute("id");
+          }
+        });
 
-        if (
-          window.scrollY >= sectionTop &&
-          window.scrollY < sectionTop + sectionHeight
-        ) {
-          current = section.getAttribute("id");
-        }
-      });
+        navLinks.forEach((link) => {
+          link.classList.remove("active-link");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active-link");
+          }
+        });
 
-      navLinks.forEach((link) => {
-        link.classList.remove("active-link");
-        if (link.getAttribute("href") === `#${current}`) {
-          link.classList.add("active-link");
-        }
-      });
+        mobileNavLinks.forEach((link) => {
+          link.classList.remove("active-link");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active-link");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", setActiveLink);
+      window.addEventListener("load", setActiveLink);
+      setActiveLink();
 
       mobileNavLinks.forEach((link) => {
-        link.classList.remove("active-link");
-        if (link.getAttribute("href") === `#${current}`) {
-          link.classList.add("active-link");
-        }
-      });
-    }
+        link.addEventListener("click", () => {
+          if (mobileMenu && menuIcon) {
+            mobileMenu.classList.remove("max-h-96", "pt-4", "opacity-100", "border-white/10");
+            mobileMenu.classList.add("max-h-0", "pt-0", "opacity-0", "border-white/0");
 
-    window.addEventListener("scroll", setActiveLink);
-    window.addEventListener("load", setActiveLink);
-    setActiveLink();
-
-    mobileNavLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        if (mobileMenu && menuIcon) {
-          mobileMenu.classList.remove("max-h-96", "pt-4", "opacity-100", "border-white/10");
-          mobileMenu.classList.add("max-h-0", "pt-0", "opacity-0", "border-white/0");
-
-          menuIcon.classList.remove("fa-xmark");
-          menuIcon.classList.add("fa-bars");
-        }
+            menuIcon.classList.remove("fa-xmark");
+            menuIcon.classList.add("fa-bars");
+          }
+        });
       });
     });
-  });
-</script>
+  </script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
