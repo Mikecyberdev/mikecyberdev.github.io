@@ -14,11 +14,47 @@
   <link rel="stylesheet" href="./src/output.css" />
 </head>
 
+
+<script>
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    const pageContent = document.getElementById("page-content");
+
+    setTimeout(() => {
+      preloader.classList.add("opacity-0", "pointer-events-none");
+      pageContent.classList.remove("opacity-0");
+
+      setTimeout(() => {
+        preloader.style.display = "none";
+      }, 700);
+    }, 1500);
+  });
+</script>
+
 <body class="text-white scroll-smooth">
 
-  <!-- Header Section -->
+<div
+  id="preloader"
+  class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050816] transition-opacity duration-700"
+>
+  <img
+    src="./src/assets/images/logo-nav.png"
+    alt="Mike Cyber Dev Logo"
+    class="mb-6 w-40 animate-pulse"
+  />
 
-  <header class="fixed left-0 right-0 top-4 z-50 px-4">
+  <p class="font-heading text-sm uppercase tracking-[0.3em] text-cyan-400">
+    Loading Portfolio...
+  </p>
+
+  <div class="mt-6 h-1 w-48 overflow-hidden rounded-full bg-white/10">
+    <div class="loading-bar h-full w-1/2 rounded-full bg-cyan-400"></div>
+  </div>
+</div>
+
+<div id="page-content" class="opacity-0 transition-opacity duration-700">
+  <!-- all your navbar, sections, footer go here -->
+   <header class="fixed left-0 right-0 top-4 z-50 px-4">
     <nav
       class="mx-auto w-full max-w-6xl rounded-2xl border border-cyan-400/15 bg-black/30 px-4 py-4 shadow-xl backdrop-blur-md md:px-6">
       <div class="flex items-center justify-between">
@@ -551,6 +587,10 @@
       </div>
     </div>
   </footer>
+</div>
+  <!-- Header Section -->
+
+  
   <!-- Nav Link -->
 
 
