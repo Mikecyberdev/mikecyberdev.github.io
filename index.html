@@ -169,7 +169,7 @@
                 <a href="#about" class="font-heading nav-link transition hover:text-cyan-400">About</a>
               </li>
               <li>
-                <a href="#skills" class="font-heading v-link transition hover:text-cyan-400">Skills</a>
+                <a href="#skills" class="font-heading nav-link transition hover:text-cyan-400">Skills</a>
               </li>
               <li>
                 <a href="#projects" class="font-heading nav-link transition hover:text-cyan-400">Projects</a>
@@ -902,10 +902,10 @@
           return;
         }
 
-        const menuIsOpen = mobileMenu && mobileMenu.classlist.contains("max-h-96");
+        const menuIsOpen = mobileMenu && mobileMenu.classList.contains("max-h-96");
 
         if (menuIsOpen) {
-          siteHeader.classLIst.remove("-translate-y-full");
+          siteHeader.classList.remove("-translate-y-full");
           lastScrollY = currentScrollY;
           return;
         }
