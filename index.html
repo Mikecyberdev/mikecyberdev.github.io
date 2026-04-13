@@ -9,116 +9,132 @@
   <link rel="icon" type="image/png" sizes="64x64" href="./src/assets/images/favicon.png">
   <link rel="stylesheet" href="./src/output.css" />
 </head>
+
 <body class="text-white scroll-smooth">
 
   <!-- Header Section -->
 
-    <header class="fixed left-0 right-0 top-4 z-50 px-4">
-      <nav class="mx-auto flex w-full max-w-6xl items-center justify-between rounded-2xl border border-cyan-400/15 bg-black/30 px-6 py-4 shadow-xl backdrop-blur-md">
-      <a href="#hero" class="flex items-center gap-3">
-        <img
-          src="./src/assets/images/logo-nav.png" alt="Mike Cyber Dev Logo" class="h-12 w-auto md:h-14"/>
-      </a>
+<header class="fixed left-0 right-0 top-4 z-50 px-4">
+  <nav
+    class="mx-auto flex w-full max-w-6xl items-center justify-between rounded-2xl border border-cyan-400/15 bg-black/30 px-6 py-4 shadow-xl backdrop-blur-md"
+  >
+    <a href="#hero" class="flex items-center gap-3">
+      <img
+        src="./src/assets/images/logo-nav.png"
+        alt="Mike Cyber Dev Logo"
+        class="h-12 w-auto md:h-14"
+      />
+    </a>
 
-      <ul class="hidden items-center gap-8 text-sm md:flex md:text-base">
+    <div class="hidden items-center gap-6 md:flex">
+      <ul class="flex items-center gap-8 text-sm md:text-base">
         <li>
-          <a href="#about" class="transition hover:text-cyan-400">About</a>
+          <a href="#about" class="nav-link transition hover:text-cyan-400">About</a>
         </li>
         <li>
-          <a href="#skills" class="transition hover:text-cyan-400">Skills</a>
+          <a href="#skills" class=" nav-link transition hover:text-cyan-400">Skills</a>
         </li>
         <li>
-          <a href="#projects" class="transition hover:text-cyan-400">Projects</a>
+          <a href="#projects" class="nav-link transition hover:text-cyan-400">Projects</a>
         </li>
         <li>
-          <a href="#contact" class="transition hover:text-cyan-400">Contact</a>
+          <a href="#contact" class="nav-link transition hover:text-cyan-400">Contact</a>
         </li>
       </ul>
-    </nav>
-  </header>
+
+      <a
+        href="./public/files/Mike CV.pdf"
+        class="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-4 py-2 text-sm font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400"
+      >
+        <i class="fa-solid fa-download"></i>
+        Download CV
+      </a>
+    </div>
+  </nav>
+</header>
 
   <main>
     <section id="hero" class="relative flex min-h-screen items-center overflow-hidden px-6 pt-24">
       <div class="absolute inset-0 bg-black/45"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-[#050816]/95 via-[#12032c]/75 to-transparent"></div>
       <div class="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-8 md:grid-cols-2">
-      <div class="max-w-2xl">
-        <p class="mb-3 text-sm uppercase tracking-[0.25em] text-cyan-400">
-          Frontend Developer • Fullstack in Training • Cybersecurity Learner
-        </p>
+        <div class="max-w-2xl" data-aos="fade-up">
+          <p class="mb-3 text-sm uppercase tracking-[0.25em] text-cyan-400">
+            Frontend Developer • Fullstack in Training • Cybersecurity Learner
+          </p>
 
-        <h1 class="max-w-3xl text-3xl font-bold leading-tight md:text-5xl">
-          Building modern web interfaces with a growing security mindset.
-        </h1>
+          <h1 class="max-w-3xl text-3xl font-bold leading-tight md:text-5xl">
+            Building modern web interfaces with a growing security mindset.
+          </h1>
 
-        <p class="mt-4 max-w-2xl text-sm leading-7 text-gray-200 md:text-base">
-          I am a student, an enthusiast, and a fast learner focused on frontend web development while growing into full stack development and cybersecurity.
-        </p>
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-gray-200 md:text-base">
+            I am a student, an enthusiast, and a fast learner focused on frontend web development while growing into full stack development and cybersecurity.
+          </p>
 
-      <div class="mt-6 flex flex-wrap gap-4">
-        <a href="#projects" class="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400">
-          View Projects
-        </a>
+        <div class="mt-6 flex flex-wrap gap-4 ">
+          <a href="#projects" class="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400">
+            View Projects
+          </a>
 
-        <a href="./public/files/Mike_CV.pdf" class="rounded-xl border border-cyan-400 px-6 py-3 font-semibold text-cyan-400 transition hover:bg-cyan-400 hover:text-black">
-          Download CV
-        </a>
-      </div>
-    </div>
-
-    <div></div>
-  </div>
-</section>
-
-<section id="about" class="relative flex min-h-screen items-center px-6 py-20">
-  <div class="absolute inset-0 bg-black/55"></div>
-
-  <div class="relative z-10 mx-auto w-full max-w-6xl">
-    <div class="grid items-center gap-10 rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:grid-cols-2 md:p-12">
-      
-      <!-- Picture side -->
-      <div class="flex justify-center">
-        <div class="w-full max-w-sm rounded-3xl border border-cyan-400/20 bg-white/5 p-4 shadow-xl">
-          <div class="flex aspect-[4/5] items-center justify-center overflow-hidden rounded-2xl bg-white/5">
-            <div class="flex h-full w-full items-center justify-center bg-white/5 text-center text-gray-400">
-  Add Your Picture Here
-</div>
-          </div>
-
-          <div class="mt-4 text-center">
-            <h3 class="text-xl font-bold text-cyan-400">Mike Cyber Dev</h3>
-            <p class="mt-2 text-sm text-gray-300">
-              Frontend Developer • Fullstack in Training • Cybersecurity Learner
-            </p>
-          </div>
+          <a href="./public/files/Mike_CV.pdf" class="rounded-xl border border-cyan-400 px-6 py-3 font-semibold text-cyan-400 transition duration-300 hover:-translate-y-1 hover:bg-cyan-400 hover:text-black">
+            Download CV
+          </a>
         </div>
       </div>
 
+      <div></div>
+    </div>
+  </section>
+
+  <section id="about" class="relative flex min-h-screen items-center px-6 py-20">
+    <div class="absolute inset-0 bg-black/55"></div>
+
+    <div class="relative z-10 mx-auto w-full max-w-6xl">
+      <div class="grid items-center gap-10 rounded-3xl border border-white/10 bg-black/25 p-8 shadow-2xl backdrop-blur-md md:grid-cols-2 md:p-12">
+      
+      <!-- Picture side -->
+        <div class="flex justify-center" data-aos="zoom-in">
+          <div class="w-full max-w-sm rounded-3xl border border-cyan-400/20 bg-white/5 p-4 shadow-xl">
+            <div class="flex aspect-[4/5] items-center justify-center overflow-hidden rounded-2xl bg-white/5">
+              <div class="flex h-full w-full items-center justify-center bg-white/5 text-center text-gray-400">
+                Add Your Picture Here
+              </div>
+            </div>
+
+            <div class="mt-4 text-center">
+              <h3 class="text-xl font-bold text-cyan-400">Mike Cyber Dev</h3>
+              <p class="mt-2 text-sm text-gray-300">
+                Frontend Developer • Fullstack in Training • Cybersecurity Learner
+              </p>
+            </div>
+          </div>
+        </div>
+
       <!-- Text side -->
-      <div>
-        <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400">
-          About Me
-        </p>
+        <div data-aos="fade-left">
+          <p class="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-400">
+            About Me
+          </p>
 
-        <h2 class="mb-6 text-3xl font-bold leading-tight md:text-4xl">
-          Building clean interfaces with a security-conscious mindset.
-        </h2>
+          <h2 class="mb-6 text-3xl font-bold leading-tight md:text-4xl">
+            Building clean interfaces with a security-conscious mindset.
+          </h2>
 
-        <p class="mb-4 text-sm leading-8 text-gray-200 md:text-base">
-          I am a student and fast learner with a strong interest in frontend web
-          development, full stack engineering, and cybersecurity.
-        </p>
+          <p class="mb-4 text-sm leading-8 text-gray-200 md:text-base">
+            I am a student and fast learner with a strong interest in frontend web
+            development, full stack engineering, and cybersecurity.
+          </p>
 
-        <p class="mb-4 text-sm leading-8 text-gray-300 md:text-base">
-          I enjoy building clean portfolio-style interfaces and growing my skills
-          in PHP, Python, ethical hacking, penetration testing, and network
-          mapping.
-        </p>
+          <p class="mb-4 text-sm leading-8 text-gray-300 md:text-base">
+            I enjoy building clean portfolio-style interfaces and growing my skills
+            in PHP, Python, ethical hacking, penetration testing, and network
+            mapping.
+          </p>
 
-        <p class="text-sm leading-8 text-gray-300 md:text-base">
-          My goal is to combine modern web development with security awareness so
-          I can build useful, responsive, and safer digital experiences.
-        </p>
+          <p class="text-sm leading-8 text-gray-300 md:text-base">
+            My goal is to combine modern web development with security awareness so
+            I can build useful, responsive, and safer digital experiences.
+          </p>
 
         <div class="mt-8 flex flex-wrap gap-3">
           <span class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">Frontend Development</span>
@@ -151,7 +167,7 @@
 
       <div class="grid gap-6 md:grid-cols-3">
         <!-- Project 1 -->
-        <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg">
+        <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg " data-aos="fade-up" data-aos-delay="100">
           <div class="mb-5 flex items-center gap-3">
             <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
               <i class="fa-solid fa-laptop-code text-lg"></i>
@@ -178,7 +194,7 @@
         </article>
 
         <!-- Project 2 -->
-        <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg">
+        <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg" data-aos="fade-up" data-aos-delay="200">
           <div class="mb-5 flex items-center gap-3">
             <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
               <i class="fa-solid fa-building text-lg"></i>
@@ -205,7 +221,7 @@
         </article>
 
         <!-- Project 3 -->
-        <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg">
+        <article class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg" data-aos="fade-up" data-aos-delay="300">
           <div class="mb-5 flex items-center gap-3">
             <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
               <i class="fa-solid fa-shield-halved text-lg"></i>
@@ -260,7 +276,7 @@
       <div class="grid gap-8 md:grid-cols-2">
         
         <!-- Left info panel -->
-        <div class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg">
+        <div class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg" data-aos="fade-right">
           <h3 class="mb-4 text-2xl font-semibold text-cyan-400">Get In Touch</h3>
           
           <p class="mb-6 text-sm leading-8 text-gray-300 md:text-base">
@@ -308,7 +324,7 @@
         </div>
 
         <!-- Right form panel -->
-        <form class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg">
+        <form class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg" data-aos="fade-left">
           <div class="mb-5">
             <label for="email" class="mb-2 block text-sm font-medium text-gray-200">
               Email
@@ -400,6 +416,45 @@
     </div>
   </div>
 </footer>
+<!-- Nav Link -->
+<script>
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+
+            if (link.getAttribute("href") === `#${id}`) {
+              link.classList.add("active");
+            }
+          });
+        }
+      });
+    },
+    {
+      threshold: 0.6,
+    }
+  );
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    once: true,
+    offset: 80
+  });
+</script>
 
 </body>
 </html>
