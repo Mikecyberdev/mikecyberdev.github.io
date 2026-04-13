@@ -151,7 +151,7 @@
 
   <div id="page-content" class="opacity-0 transition-opacity duration-700">
     <!-- all your navbar, sections, footer go here -->
-    <header class="fixed left-0 right-0 top-4 z-50 px-4">
+    <header id="site-header" class="fixed left-0 right-0 top-4 z-50 px-4 transition-transform duration-300">
       <nav
         class="mx-auto w-full max-w-6xl rounded-2xl border border-cyan-400/15 bg-black/30 px-4 py-4 shadow-xl backdrop-blur-md md:px-6">
         <div class="flex items-center justify-between">
@@ -833,10 +833,13 @@
       const menuBtn = document.getElementById("menu-btn");
       const mobileMenu = document.getElementById("mobile-menu");
       const menuIcon = document.getElementById("menu-icon");
+      const siteHeader = document.getElementById('site-header');
 
       const sections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll(".nav-link");
       const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+      let lastScrollY = window.scrollY;
 
       if (menuBtn && mobileMenu && menuIcon) {
         menuBtn.addEventListener("click", () => {
@@ -888,9 +891,37 @@
         });
       }
 
-      window.addEventListener("scroll", setActiveLink);
-      window.addEventListener("load", setActiveLink);
+      function handleHeaderScroll() {
+        if (!siteHeader) return;
+
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY <= 20) {
+          siteHeader.classlist.remove("-translate-y-full");
+          lastScrollY = currentScrollY;
+          return;
+        }
+
+        const menuIsOpen = mobileMenu && mobileMenu.classlist.contains("max-h-96");
+
+        if (menuIsOpen) {
+          siteHeader.classLIst.remove("-translate-y-full");
+          lastScrollY = currentScrollY;
+          return;
+        }
+
+        if (currentScrollY > lastScrollY) {
+          siteHeader.classList.add("-translate-y-full");
+        } else {
+          siteHeader.classList.remove("-translate-y-full");
+        }
+        lastScrollY = currentScrollY;
+      }
+
+      window.addEventListener("scroll", () => { setActiveLink(); handleHeaderScroll(); });
+      window.addEventListener("load", () => { setActiveLink(); handleHeaderScroll(); });
       setActiveLink();
+      handleHeaderScroll();
 
       mobileNavLinks.forEach((link) => {
         link.addEventListener("click", () => {
