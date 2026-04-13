@@ -15,112 +15,91 @@
 
   <!-- Header Section -->
 
-<header class="fixed left-0 right-0 top-4 z-50 px-4">
-  <nav
-    class="mx-auto w-full max-w-6xl rounded-2xl border border-cyan-400/15 bg-black/30 px-4 py-4 shadow-xl backdrop-blur-md md:px-6"
-  >
-    <div class="flex items-center justify-between">
-      <a href="#hero" class="flex items-center gap-3">
-        <img
-          src="./src/assets/images/logo-nav.png"
-          alt="Mike Cyber Dev Logo"
-          class="float-slow h-12 w-auto md:h-14"
-        />
-      </a>
-
-      <div class="hidden items-center gap-6 md:flex">
-        <ul class="flex items-center gap-8 text-sm md:text-base">
-          <li>
-            <a href="#hero" class="nav-link transition hover:text-cyan-400">Home</a>
-          </li>
-          <li>
-            <a href="#about" class="nav-link transition hover:text-cyan-400">About</a>
-          </li>
-          <li>
-            <a href="#skills" class="nav-link transition hover:text-cyan-400">Skills</a>
-          </li>
-          <li>
-            <a href="#projects" class="nav-link transition hover:text-cyan-400">Projects</a>
-          </li>
-          <li>
-            <a href="#contact" class="nav-link transition hover:text-cyan-400">Contact</a>
-          </li>
-        </ul>
-
-        <a
-          href="./public/files/Mike_CV.pdf"
-          class="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-4 py-2 text-sm font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400"
-        >
-          <i class="fa-solid fa-download"></i>
-          Download CV
+  <header class="fixed left-0 right-0 top-4 z-50 px-4">
+    <nav
+      class="mx-auto w-full max-w-6xl rounded-2xl border border-cyan-400/15 bg-black/30 px-4 py-4 shadow-xl backdrop-blur-md md:px-6">
+      <div class="flex items-center justify-between">
+        <a href="#hero" class="flex items-center gap-3">
+          <img src="./src/assets/images/logo-nav.png" alt="Mike Cyber Dev Logo"
+            class="float-slow h-12 w-auto md:h-14" />
         </a>
-      </div>
 
-      <button
-        id="menu-btn"
-        class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-3 text-white transition hover:border-cyan-400 hover:text-cyan-400 md:hidden"
-        aria-label="Open menu"
-        type="button"
-      >
-        <i class="fa-solid fa-bars text-lg"></i>
-      </button>
-    </div>
+        <div class="hidden items-center gap-6 md:flex">
+          <ul class="flex items-center gap-8 text-sm md:text-base">
+            <li>
+              <a href="#hero" class="nav-link transition hover:text-cyan-400">Home</a>
+            </li>
+            <li>
+              <a href="#about" class="nav-link transition hover:text-cyan-400">About</a>
+            </li>
+            <li>
+              <a href="#skills" class="nav-link transition hover:text-cyan-400">Skills</a>
+            </li>
+            <li>
+              <a href="#projects" class="nav-link transition hover:text-cyan-400">Projects</a>
+            </li>
+            <li>
+              <a href="#contact" class="nav-link transition hover:text-cyan-400">Contact</a>
+            </li>
+          </ul>
 
-    <div id="mobile-menu" class="hidden border-t border-white/10 pt-4 md:hidden">
-      <ul class="flex flex-col gap-3 text-sm">
-        <li>
-          <a
-            href="#hero"
-            class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
-          >
-            Home
-          </a>
-        </li>
-        <li>
-          <a
-            href="#about"
-            class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
-          >
-            About
-          </a>
-        </li>
-        <li>
-          <a
-            href="#skills"
-            class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
-          >
-            Skills
-          </a>
-        </li>
-        <li>
-          <a
-            href="#projects"
-            class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
-          >
-            Projects
-          </a>
-        </li>
-        <li>
-          <a
-            href="#contact"
-            class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400"
-          >
-            Contact
-          </a>
-        </li>
-        <li class="pt-2">
-          <a
-            href="./public/files/Mike_CV.pdf"
-            class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 px-4 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-cyan-400"
-          >
+          <a href="./public/files/Mike_CV.pdf"
+            class="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-4 py-2 text-sm font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400">
             <i class="fa-solid fa-download"></i>
             Download CV
           </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
+        </div>
+
+        <button id="menu-btn"
+          class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-3 text-white transition hover:border-cyan-400 hover:text-cyan-400 md:hidden"
+          aria-label="Open menu" type="button">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="hidden border-t border-white/10 pt-4 md:hidden">
+        <ul class="flex flex-col gap-3 text-sm">
+          <li>
+            <a href="#hero"
+              class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#about"
+              class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#skills"
+              class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
+              Skills
+            </a>
+          </li>
+          <li>
+            <a href="#projects"
+              class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="#contact"
+              class="mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
+              Contact
+            </a>
+          </li>
+          <li class="pt-2">
+            <a href="./public/files/Mike_CV.pdf"
+              class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 px-4 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-cyan-400">
+              <i class="fa-solid fa-download"></i>
+              Download CV
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
   <main>
     <section id="hero" class="relative flex min-h-screen items-center overflow-hidden px-6 pt-24">
@@ -484,13 +463,14 @@
             </div>
 
             <!-- Right form panel -->
-            <form class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg overflow-hidden"
+            <form action="https://formspree.io/f/mqewzoby" method="POST"
+              class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg overflow-hidden"
               data-aos="fade-left">
               <div class="mb-5">
                 <label for="email" class="mb-2 block text-sm font-medium text-gray-200">
                   Email
                 </label>
-                <input type="email" id="email" name="email" placeholder="Enter your email"
+                <input type="email" id="email" name="email" placeholder="Enter your email" required
                   class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-400 focus:border-cyan-400 focus:bg-black/30" />
               </div>
 
@@ -498,7 +478,7 @@
                 <label for="number" class="mb-2 block text-sm font-medium text-gray-200">
                   Phone Number
                 </label>
-                <input type="tel" id="number" name="number" placeholder="Enter your phone number"
+                <input type="tel" id="number" name="phone" placeholder="Enter your phone number"
                   class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-400 focus:border-cyan-400 focus:bg-black/30" />
               </div>
 
@@ -506,9 +486,11 @@
                 <label for="message" class="mb-2 block text-sm font-medium text-gray-200">
                   Message
                 </label>
-                <textarea id="message" name="message" rows="6" placeholder="Write your message here..."
+                <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required
                   class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-400 focus:border-cyan-400 focus:bg-black/30"></textarea>
               </div>
+
+              <input type="hidden" name="_subject" value="New portfolio contact message" />
 
               <button type="submit" data-aos="fade-up" data-aos-delay="200"
                 class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400">
@@ -553,68 +535,68 @@
     </div>
   </footer>
   <!-- Nav Link -->
-  
+
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
 
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-link");
-    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-    }
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
 
-    function setActiveLink() {
-      let current = "";
+      function setActiveLink() {
+        let current = "";
 
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 160;
-        const sectionHeight = section.offsetHeight;
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 160;
+          const sectionHeight = section.offsetHeight;
 
-        if (
-          window.scrollY >= sectionTop &&
-          window.scrollY < sectionTop + sectionHeight
-        ) {
-          current = section.getAttribute("id");
-        }
-      });
+          if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+          ) {
+            current = section.getAttribute("id");
+          }
+        });
 
-      navLinks.forEach((link) => {
-        link.classList.remove("active-link");
+        navLinks.forEach((link) => {
+          link.classList.remove("active-link");
 
-        if (link.getAttribute("href") === `#${current}`) {
-          link.classList.add("active-link");
-        }
-      });
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active-link");
+          }
+        });
+
+        mobileNavLinks.forEach((link) => {
+          link.classList.remove("active-link");
+
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active-link");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", setActiveLink);
+      window.addEventListener("load", setActiveLink);
+      setActiveLink();
 
       mobileNavLinks.forEach((link) => {
-        link.classList.remove("active-link");
-
-        if (link.getAttribute("href") === `#${current}`) {
-          link.classList.add("active-link");
-        }
-      });
-    }
-
-    window.addEventListener("scroll", setActiveLink);
-    window.addEventListener("load", setActiveLink);
-    setActiveLink();
-
-    mobileNavLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        if (mobileMenu) {
-          mobileMenu.classList.add("hidden");
-        }
+        link.addEventListener("click", () => {
+          if (mobileMenu) {
+            mobileMenu.classList.add("hidden");
+          }
+        });
       });
     });
-  });
-</script>
+  </script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
