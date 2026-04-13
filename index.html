@@ -153,78 +153,55 @@
     <!-- all your navbar, sections, footer go here -->
     <header id="site-header" class="fixed left-0 right-0 top-4 z-50 px-4 transition-transform duration-300">
       <nav
-        class="mx-auto w-full max-w-6xl rounded-2xl border border-cyan-400/15 bg-black/30 px-4 py-4 shadow-xl backdrop-blur-md md:px-6">
+        class="mx-auto w-full max-w-6xl rounded-2xl border border-cyan-400/15 bg-black/30 px-4 py-3 shadow-xl backdrop-blur-md md:px-6 md:py-4">
         <div class="flex items-center justify-between">
           <a href="#hero" class="flex items-center gap-3">
-            <img src="./src/assets/images/logo-nav.png" alt="Mike Cyber Dev Logo"
-              class="float-slow h-12 w-auto md:h-14" />
+            <img src="./src/assets/images/logo-navbar.png" alt="Mike Cyber Dev Logo" class="h-10 w-auto md:h-14" />
           </a>
 
-          <div class="hidden items-center gap-6 md:flex">
-            <ul class="flex items-center gap-8 text-sm md:text-base">
-              <li>
-                <a href="#hero" class="font-heading nav-link transition hover:text-cyan-400">Home</a>
-              </li>
-              <li>
-                <a href="#about" class="font-heading nav-link transition hover:text-cyan-400">About</a>
-              </li>
-              <li>
-                <a href="#skills" class="font-heading nav-link transition hover:text-cyan-400">Skills</a>
-              </li>
-              <li>
-                <a href="#projects" class="font-heading nav-link transition hover:text-cyan-400">Projects</a>
-              </li>
-              <li>
-                <a href="#contact" class="font-heading nav-link transition hover:text-cyan-400">Contact</a>
-              </li>
+          <!-- Desktop nav -->
+          <div class="hidden items-center gap-6 lg:flex">
+            <ul class="flex items-center gap-8 text-sm xl:text-base">
+              <li><a href="#hero" class="font-heading nav-link transition hover:text-cyan-400">Home</a></li>
+              <li><a href="#about" class="font-heading nav-link transition hover:text-cyan-400">About</a></li>
+              <li><a href="#skills" class="font-heading nav-link transition hover:text-cyan-400">Skills</a></li>
+              <li><a href="#projects" class="font-heading nav-link transition hover:text-cyan-400">Projects</a></li>
+              <li><a href="#contact" class="font-heading nav-link transition hover:text-cyan-400">Contact</a></li>
             </ul>
 
-            <a href="./public/files/Ndukwe_Michael_Okorie_Junior_CV.pdf"
+            <a href="./public/files/Mike_CV.pdf"
               class="font-heading inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-4 py-2 text-sm font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400">
               <i class="fa-solid fa-download"></i>
               Download CV
             </a>
           </div>
 
+          <!-- Mobile button -->
           <button id="menu-btn"
-            class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-3 text-white transition hover:border-cyan-400 hover:text-cyan-400 md:hidden"
+            class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-3 text-white transition hover:border-cyan-400 hover:text-cyan-400 lg:hidden"
             aria-label="Open menu" type="button">
             <i id="menu-icon" class="fa-solid fa-bars text-lg transition duration-300"></i>
           </button>
         </div>
 
+        <!-- Mobile menu -->
         <div id="mobile-menu"
-          class="max-h-0 overflow-hidden border-t border-white/0 pt-0 opacity-0 transition-all duration-300 ease-in-out md:hidden">
-          <ul class="flex flex-col gap-3 text-sm">
-            <li>
-              <a href="#hero"
-                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
-                Home
-              </a>
+          class="max-h-0 overflow-hidden border-t border-white/0 pt-0 opacity-0 transition-all duration-300 ease-in-out lg:hidden">
+          <ul class="flex flex-col gap-3 pt-4 text-sm">
+            <li><a href="#hero"
+                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">Home</a>
             </li>
-            <li>
-              <a href="#about"
-                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
-                About
-              </a>
+            <li><a href="#about"
+                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">About</a>
             </li>
-            <li>
-              <a href="#skills"
-                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
-                Skills
-              </a>
+            <li><a href="#skills"
+                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">Skills</a>
             </li>
-            <li>
-              <a href="#projects"
-                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
-                Projects
-              </a>
+            <li><a href="#projects"
+                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">Projects</a>
             </li>
-            <li>
-              <a href="#contact"
-                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">
-                Contact
-              </a>
+            <li><a href="#contact"
+                class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">Contact</a>
             </li>
             <li class="pt-2">
               <a href="./public/files/Mike_CV.pdf"
@@ -239,7 +216,7 @@
     </header>
 
     <main>
-      <section id="hero" class="relative flex min-h-screen items-center overflow-hidden px-6 pt-24">
+      <section id="hero" class="relative flex min-h-screen items-center overflow-hidden px-6 pt-36 md:pt-32">
         <div class="absolute inset-0 bg-black/45"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-[#050816]/95 via-[#12032c]/75 to-transparent"></div>
         <div class="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-8 md:grid-cols-2">
@@ -612,8 +589,9 @@
               </div>
 
               <!-- Right form panel -->
-              <form id="contact-form" class="overflow-hidden" action="https://formspree.io/f/mqewzoby" method="POST"
-                class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg" data-aos="fade-left">
+              <form id="contact-form" action="https://formspree.io/f/mqewzoby" method="POST"
+                class="overflow-hidden rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg"
+                data-aos="fade-left">
                 <div class="mb-5">
                   <label for="email" class="mb-2 block text-sm font-medium text-gray-200">
                     Email

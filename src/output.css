@@ -304,9 +304,6 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
-  .h-12 {
-    height: calc(var(--spacing) * 12);
-  }
   .h-\[420px\] {
     height: 420px;
   }
@@ -635,8 +632,8 @@
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
   }
-  .pt-24 {
-    padding-top: calc(var(--spacing) * 24);
+  .pt-36 {
+    padding-top: calc(var(--spacing) * 36);
   }
   .pb-8 {
     padding-bottom: calc(var(--spacing) * 8);
@@ -929,16 +926,6 @@
       opacity: 70%;
     }
   }
-  .md\:flex {
-    @media (width >= 48rem) {
-      display: flex;
-    }
-  }
-  .md\:hidden {
-    @media (width >= 48rem) {
-      display: none;
-    }
-  }
   .md\:h-14 {
     @media (width >= 48rem) {
       height: calc(var(--spacing) * 14);
@@ -969,6 +956,16 @@
       padding-inline: calc(var(--spacing) * 6);
     }
   }
+  .md\:py-4 {
+    @media (width >= 48rem) {
+      padding-block: calc(var(--spacing) * 4);
+    }
+  }
+  .md\:pt-32 {
+    @media (width >= 48rem) {
+      padding-top: calc(var(--spacing) * 32);
+    }
+  }
   .md\:text-left {
     @media (width >= 48rem) {
       text-align: left;
@@ -994,6 +991,22 @@
   }
   .md\:text-base {
     @media (width >= 48rem) {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
+    }
+  }
+  .lg\:flex {
+    @media (width >= 64rem) {
+      display: flex;
+    }
+  }
+  .lg\:hidden {
+    @media (width >= 64rem) {
+      display: none;
+    }
+  }
+  .xl\:text-base {
+    @media (width >= 80rem) {
       font-size: var(--text-base);
       line-height: var(--tw-leading, var(--text-base--line-height));
     }
