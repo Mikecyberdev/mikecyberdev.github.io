@@ -126,6 +126,7 @@
 </script>
 
 <body class="loading text-white scroll-smooth">
+  <div id="nav-hover-zone" class="fixed left-0 top-0 z-40 h-6 w-full"></div>
 
   <div id="preloader"
     class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050816] transition-opacity duration-700">
@@ -812,6 +813,7 @@
       const mobileMenu = document.getElementById("mobile-menu");
       const menuIcon = document.getElementById("menu-icon");
       const siteHeader = document.getElementById("site-header");
+      const navHoverZone = document.getElementById("nav-hover-zone");
 
       const sections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll(".nav-link");
@@ -934,8 +936,30 @@
         showHeader();
       });
 
-      setActiveLink();
-      showHeader();
+      if (navHoverZone) {
+        navHoverZone.addEventListener("mouseenter", () => {
+          showHeader();
+
+          clearTimeout(hideNavbarTimeout);
+          hideNavbarTimeout = setTimeout(() => {
+            hideHeader();
+          }, 1800);
+        });
+      }
+
+      if (siteHeader) {
+        siteHeader.addEventListener("mouseenter", () => {
+          clearTimeout(hideNavbarTimeout);
+          showHeader();
+        });
+
+        siteHeader.addEventListener("mouseleave", () => {
+          clearTimeout(hideNavbarTimeout);
+          hideNavbarTimeout = setTimeout(() => {
+            hideHeader();
+          }, 1800);
+        });
+      }
 
       mobileNavLinks.forEach((link) => {
         link.addEventListener("click", () => {
@@ -948,14 +972,9 @@
           }
         });
       });
-    });
-  </script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 900,
-      once: true,
-      offset: 80
+
+      setActiveLink();
+      showHeader();
     });
   </script>
 
