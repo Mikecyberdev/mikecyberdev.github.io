@@ -434,8 +434,13 @@
 
             <div class="grid gap-6 md:grid-cols-3">
               <!-- Project 1 -->
-              <article
-                class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10"
+              <button type="button"
+                class="project-card group block h-full rounded-2xl border border-cyan-400/15 bg-white/5 p-6 text-left shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
+                data-project-title="Portfolio Website" data-project-image="./src/assets/images/preview.png"
+                data-project-alt="Preview image for Mike Cyber Dev portfolio website"
+                data-project-description="This portfolio brings together smooth navigation, animated sections, a custom preloader, and a clean cyber-inspired interface to present my frontend work and growing cybersecurity interests in one place."
+                data-project-tags="HTML,Tailwind CSS,JavaScript"
+                data-project-link="https://github.com/Mikecyberdev" data-project-link-label="View on GitHub"
                 data-aos="fade-up" data-aos-delay="100">
                 <div class="mb-5 flex items-center gap-3">
                   <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
@@ -460,11 +465,20 @@
                     JavaScript
                   </span>
                 </div>
-              </article>
+                <div class="mt-6 flex items-center gap-2 text-sm font-medium text-cyan-300">
+                  <span>Tap to preview</span>
+                  <i class="fa-solid fa-arrow-right transition duration-300 group-hover:translate-x-1"></i>
+                </div>
+              </button>
 
               <!-- Project 2 -->
-              <article
-                class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10"
+              <button type="button"
+                class="project-card group block h-full rounded-2xl border border-cyan-400/15 bg-white/5 p-6 text-left shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
+                data-project-title="Estate Project" data-project-image="./src/assets/images/background-cyber.jpg"
+                data-project-alt="Preview image for estate project concept"
+                data-project-description="This ongoing concept focuses on a modern real-estate experience with a clear layout, approachable property presentation, and room for future search, listing, and contact features."
+                data-project-tags="In Progress,UI Design,Web Interface"
+                data-project-link="https://github.com/Mikecyberdev" data-project-link-label="View on GitHub"
                 data-aos="fade-up" data-aos-delay="200">
                 <div class="mb-5 flex items-center gap-3">
                   <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
@@ -489,11 +503,21 @@
                     Web Interface
                   </span>
                 </div>
-              </article>
+                <div class="mt-6 flex items-center gap-2 text-sm font-medium text-cyan-300">
+                  <span>Tap to preview</span>
+                  <i class="fa-solid fa-arrow-right transition duration-300 group-hover:translate-x-1"></i>
+                </div>
+              </button>
 
               <!-- Project 3 -->
-              <article
-                class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10"
+              <button type="button"
+                class="project-card group block h-full rounded-2xl border border-cyan-400/15 bg-white/5 p-6 text-left shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
+                data-project-title="Android Security Testing Lab"
+                data-project-image="./src/assets/images/background-cyber.jpg"
+                data-project-alt="Preview image for Android security testing lab"
+                data-project-description="This learning lab is centered on authorized Android security practice, helping me study testing workflows, understand common mobile risks, and build a stronger security mindset through controlled experimentation."
+                data-project-tags="Security Research,Lab Practice,Mobile Security"
+                data-project-link="https://github.com/Mikecyberdev" data-project-link-label="View on GitHub"
                 data-aos="fade-up" data-aos-delay="300">
                 <div class="mb-5 flex items-center gap-3">
                   <div class="rounded-xl bg-cyan-400/10 p-3 text-cyan-400">
@@ -519,11 +543,68 @@
                     Mobile Security
                   </span>
                 </div>
-              </article>
+                <div class="mt-6 flex items-center gap-2 text-sm font-medium text-cyan-300">
+                  <span>Tap to preview</span>
+                  <i class="fa-solid fa-arrow-right transition duration-300 group-hover:translate-x-1"></i>
+                </div>
+              </button>
             </div>
           </div>
         </div>
       </section>
+
+      <div id="project-modal"
+        class="pointer-events-none fixed inset-0 z-[120] flex items-center justify-center bg-black/75 px-4 py-6 opacity-0 backdrop-blur-sm transition duration-300"
+        role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="project-modal-title">
+        <div id="project-modal-backdrop" class="absolute inset-0"></div>
+
+        <div id="project-modal-panel"
+          class="relative z-10 flex max-h-[90vh] w-full max-w-5xl translate-y-6 scale-[0.98] flex-col overflow-hidden rounded-3xl border border-cyan-400/20 bg-[#050816]/95 shadow-2xl shadow-cyan-950/40 transition duration-300 lg:flex-row">
+          <button id="project-modal-close" type="button"
+            class="absolute right-4 top-4 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/40 text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400">
+            <span class="sr-only">Close project preview</span>
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+
+          <div class="relative h-64 overflow-hidden bg-black/40 sm:h-80 lg:h-auto lg:w-[48%]">
+            <img id="project-modal-image" src="./src/assets/images/preview.png" alt="Project preview"
+              class="h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent lg:bg-gradient-to-r">
+            </div>
+          </div>
+
+          <div class="flex flex-1 flex-col overflow-y-auto p-6 sm:p-8">
+            <p class="font-heading text-xs uppercase tracking-[0.35em] text-cyan-400">
+              Project Preview
+            </p>
+
+            <h3 id="project-modal-title" class="font-heading mt-4 text-2xl font-bold leading-tight md:text-4xl">
+              Portfolio Website
+            </h3>
+
+            <p id="project-modal-description" class="mt-4 text-sm leading-8 text-gray-300 md:text-base">
+              Project details will appear here.
+            </p>
+
+            <div id="project-modal-tags" class="mt-6 flex flex-wrap gap-2"></div>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a id="project-modal-link" href="https://github.com/Mikecyberdev" target="_blank"
+                rel="noopener noreferrer"
+                class="font-heading inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span id="project-modal-link-text">View on GitHub</span>
+              </a>
+
+              <button id="project-modal-close-secondary" type="button"
+                class="font-heading inline-flex items-center gap-2 rounded-xl border border-cyan-400 px-5 py-3 text-sm font-semibold text-cyan-300 transition duration-300 hover:-translate-y-1 hover:bg-cyan-400 hover:text-black">
+                <i class="fa-solid fa-xmark"></i>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <section id="contact" class="relative flex min-h-screen items-center px-6 py-24">
         <div class="absolute inset-0 bg-black/60"></div>
@@ -673,6 +754,113 @@
 
   <!-- Nav Link -->
 
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const projectCards = document.querySelectorAll(".project-card");
+      const projectModal = document.getElementById("project-modal");
+      const projectModalPanel = document.getElementById("project-modal-panel");
+      const projectModalBackdrop = document.getElementById("project-modal-backdrop");
+      const projectModalClose = document.getElementById("project-modal-close");
+      const projectModalCloseSecondary = document.getElementById("project-modal-close-secondary");
+      const projectModalTitle = document.getElementById("project-modal-title");
+      const projectModalImage = document.getElementById("project-modal-image");
+      const projectModalDescription = document.getElementById("project-modal-description");
+      const projectModalTags = document.getElementById("project-modal-tags");
+      const projectModalLink = document.getElementById("project-modal-link");
+      const projectModalLinkText = document.getElementById("project-modal-link-text");
+
+      if (
+        !projectCards.length ||
+        !projectModal ||
+        !projectModalPanel ||
+        !projectModalBackdrop ||
+        !projectModalClose ||
+        !projectModalCloseSecondary ||
+        !projectModalTitle ||
+        !projectModalImage ||
+        !projectModalDescription ||
+        !projectModalTags ||
+        !projectModalLink ||
+        !projectModalLinkText
+      ) return;
+
+      let lastFocusedElement = null;
+
+      function buildTag(tag) {
+        const tagEl = document.createElement("span");
+        tagEl.className =
+          "rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300";
+        tagEl.textContent = tag.trim();
+        return tagEl;
+      }
+
+      function openProjectModal(card) {
+        const {
+          projectTitle,
+          projectImage,
+          projectAlt,
+          projectDescription,
+          projectTags,
+          projectLink,
+          projectLinkLabel,
+        } = card.dataset;
+
+        lastFocusedElement = document.activeElement;
+
+        projectModalTitle.textContent = projectTitle || "Project Preview";
+        projectModalImage.src = projectImage || "./src/assets/images/preview.png";
+        projectModalImage.alt = projectAlt || projectTitle || "Project preview";
+        projectModalDescription.textContent = projectDescription || "";
+        projectModalLink.href = projectLink || "#";
+        projectModalLinkText.textContent = projectLinkLabel || "Open project";
+
+        projectModalTags.innerHTML = "";
+        (projectTags || "")
+          .split(",")
+          .filter(Boolean)
+          .forEach((tag) => {
+            projectModalTags.appendChild(buildTag(tag));
+          });
+
+        document.body.style.overflow = "hidden";
+        projectModal.setAttribute("aria-hidden", "false");
+        projectModal.classList.remove("pointer-events-none", "opacity-0");
+        projectModal.classList.add("pointer-events-auto", "opacity-100");
+        projectModalPanel.classList.remove("translate-y-6", "scale-[0.98]");
+        projectModalPanel.classList.add("translate-y-0", "scale-100");
+
+        projectModalClose.focus();
+      }
+
+      function closeProjectModal() {
+        projectModal.setAttribute("aria-hidden", "true");
+        projectModal.classList.remove("pointer-events-auto", "opacity-100");
+        projectModal.classList.add("pointer-events-none", "opacity-0");
+        projectModalPanel.classList.remove("translate-y-0", "scale-100");
+        projectModalPanel.classList.add("translate-y-6", "scale-[0.98]");
+        document.body.style.overflow = "";
+
+        if (lastFocusedElement instanceof HTMLElement) {
+          lastFocusedElement.focus();
+        }
+      }
+
+      projectCards.forEach((card) => {
+        card.addEventListener("click", () => openProjectModal(card));
+      });
+
+      projectModalClose.addEventListener("click", closeProjectModal);
+      projectModalCloseSecondary.addEventListener("click", closeProjectModal);
+      projectModalBackdrop.addEventListener("click", closeProjectModal);
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && projectModal.getAttribute("aria-hidden") === "false") {
+          closeProjectModal();
+        }
+      });
+    });
+  </script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
