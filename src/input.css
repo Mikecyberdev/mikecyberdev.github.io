@@ -354,6 +354,12 @@ body {
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
 }
 
+.admin-btn-primary.hidden,
+.admin-btn-secondary.hidden,
+.admin-btn-danger.hidden {
+  display: none;
+}
+
 .admin-btn-primary {
   background: linear-gradient(135deg, #67e8f9 0%, #22d3ee 52%, #a5f3fc 100%);
   color: #04111f;

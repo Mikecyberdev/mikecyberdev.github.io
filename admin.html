@@ -23,22 +23,27 @@
 
     <main class="relative z-10 px-4 py-8 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-7xl space-y-6">
-        <section class="admin-shell rounded-3xl px-6 py-6 sm:px-8">
+        <section class="admin-shell rounded-3xl px-5 py-4 sm:px-6">
           <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p class="font-heading text-xs uppercase tracking-[0.35em] text-cyan-400">
-                Portfolio Admin
-              </p>
-              <h1 class="font-heading mt-3 text-3xl font-bold md:text-4xl">
+            <div class="space-y-2">
+              <div class="flex flex-wrap items-center gap-3">
+                <a href="./index.html" class="admin-btn-secondary">
+                  <i class="fa-solid fa-arrow-left"></i>
+                  Back to Site
+                </a>
+                <p class="font-heading text-xs uppercase tracking-[0.35em] text-cyan-400">
+                  Portfolio Admin
+                </p>
+              </div>
+              <h1 class="font-heading text-xl font-bold md:text-2xl">
                 Manage your portfolio content
               </h1>
-              <p class="admin-mini-note mt-3 max-w-3xl">
-                Update your skill progress, profile image, CV, and projects here. This panel uses Supabase Auth,
-                Storage, and a single content row for easy editing in plain JavaScript.
+              <p class="admin-mini-note max-w-2xl">
+                Update your skills, profile, CV, and projects from one dashboard.
               </p>
             </div>
 
-            <div class="flex flex-wrap items-center gap-3">
+            <div class="flex flex-wrap items-center gap-3 lg:self-start">
               <span id="admin-session-pill"
                 class="hidden rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300"></span>
               <button id="save-content-btn" type="button" class="admin-btn-primary hidden">
