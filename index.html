@@ -169,7 +169,7 @@
               <li><a href="#contact" class="font-heading nav-link transition hover:text-cyan-400">Contact</a></li>
             </ul>
 
-            <a href="./public/files/Mike_CV.pdf"
+            <a id="nav-cv-link" href="./public/files/Mike_CV.pdf"
               class="font-heading inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-4 py-2 text-sm font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400">
               <i class="fa-solid fa-download"></i>
               Download CV
@@ -204,7 +204,7 @@
                 class="font-heading mobile-nav-link block rounded-lg px-3 py-2 transition hover:bg-cyan-400/10 hover:text-cyan-400">Contact</a>
             </li>
             <li class="pt-2">
-              <a href="./public/files/Mike_CV.pdf"
+              <a id="mobile-cv-link" href="./public/files/Mike_CV.pdf"
                 class="font-heading inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-500 px-4 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-cyan-400">
                 <i class="fa-solid fa-download"></i>
                 Download CV
@@ -240,7 +240,7 @@
                 View Projects
               </a>
 
-              <a href="./public/files/Ndukwe_Michael_Okorie_Junior_CV.pdf"
+              <a id="hero-cv-link" href="./public/files/Ndukwe_Michael_Okorie_Junior_CV.pdf"
                 class="font-heading rounded-xl border border-cyan-400 px-6 py-3 font-semibold text-cyan-400 transition duration-300 hover:-translate-y-1 hover:bg-cyan-400 hover:text-black">
                 Download CV
               </a>
@@ -263,15 +263,15 @@
               <div
                 class="w-full max-w-sm rounded-3xl border border-cyan-400/15 bg-white/5 p-5 shadow-xl backdrop-blur-md transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30 hover:shadow-cyan-500/10">
                 <div class="about-image-card overflow-hidden rounded-2xl border border-white/10">
-                  <img src="./src/assets/images/profile.jpg" alt="Ndukwe Michael Okorie Junior"
+                  <img id="about-profile-image" src="./src/assets/images/profile.jpg" alt="Ndukwe Michael Okorie Junior"
                     class="h-[420px] w-full object-cover" />
                 </div>
 
                 <div class="mt-5 text-center">
-                  <h3 class="text-xl font-bold text-cyan-400 md:text-2xl">
+                  <h3 id="about-name" class="text-xl font-bold text-cyan-400 md:text-2xl">
                     Ndukwe Michael Okorie Junior
                   </h3>
-                  <p class="mt-2 text-sm leading-7 text-gray-300">
+                  <p id="about-role" class="mt-2 text-sm leading-7 text-gray-300">
                     Frontend Developer • Fullstack in Training • Cybersecurity Student
                   </p>
                 </div>
@@ -284,27 +284,27 @@
                 About Me
               </p>
 
-              <h2 class="font-heading mb-6 text-2xl font-bold leading-tight md:text-4xl">
+              <h2 id="about-heading" class="font-heading mb-6 text-2xl font-bold leading-tight md:text-4xl">
                 Building clean interfaces with a security-conscious mindset.
               </h2>
 
-              <p class="mb-4 text-sm leading-8 text-gray-200 md:text-base">
+              <p id="about-paragraph-1" class="mb-4 text-sm leading-8 text-gray-200 md:text-base">
                 I am a student and fast learner with a strong interest in frontend web
                 development, full stack engineering, and cybersecurity.
               </p>
 
-              <p class="mb-4 text-sm leading-8 text-gray-300 md:text-base">
+              <p id="about-paragraph-2" class="mb-4 text-sm leading-8 text-gray-300 md:text-base">
                 I enjoy building clean portfolio-style interfaces and growing my skills
                 in PHP, Python, ethical hacking, penetration testing, and network
                 mapping.
               </p>
 
-              <p class="text-sm leading-8 text-gray-300 md:text-base">
+              <p id="about-paragraph-3" class="text-sm leading-8 text-gray-300 md:text-base">
                 My goal is to combine modern web development with security awareness so
                 I can build useful, responsive, and safer digital experiences.
               </p>
 
-              <div class="mt-8 flex flex-wrap gap-3">
+              <div id="about-tags" class="mt-8 flex flex-wrap gap-3">
                 <span
                   class="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/20">
                   Frontend Development
@@ -350,7 +350,7 @@
               </p>
             </div>
 
-            <div class="grid gap-6 md:grid-cols-3">
+            <div id="skills-grid" class="grid gap-6 md:grid-cols-3">
               <!-- Frontend -->
               <article
                 class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-cyan-500/10"
@@ -567,7 +567,7 @@
               </p>
             </div>
 
-            <div class="grid gap-6 md:grid-cols-3">
+            <div id="projects-grid" class="grid gap-6 md:grid-cols-3">
               <!-- Project 1 -->
               <button type="button"
                 class="project-card group block h-full rounded-2xl border border-cyan-400/15 bg-white/5 p-6 text-left shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
@@ -694,21 +694,25 @@
         <div id="project-modal-backdrop" class="absolute inset-0"></div>
 
         <div id="project-modal-panel"
-          class="relative z-10 flex max-h-[90vh] w-full max-w-5xl translate-y-6 scale-[0.98] flex-col overflow-hidden rounded-3xl border border-cyan-400/20 bg-[#050816]/95 shadow-2xl shadow-cyan-950/40 transition duration-300 lg:flex-row">
+          class="project-modal-glass relative z-10 flex max-h-[90vh] w-full max-w-5xl translate-y-6 scale-[0.98] flex-col overflow-hidden rounded-3xl border border-cyan-400/20 transition duration-300 lg:flex-row">
+          <div class="project-modal-orb project-modal-orb--one" aria-hidden="true"></div>
+          <div class="project-modal-orb project-modal-orb--two" aria-hidden="true"></div>
+
           <button id="project-modal-close" type="button"
-            class="absolute right-4 top-4 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/40 text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400">
+            class="project-modal-close-btn absolute right-4 top-4 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400">
             <span class="sr-only">Close project preview</span>
             <i class="fa-solid fa-xmark text-lg"></i>
           </button>
 
-          <div class="relative h-64 overflow-hidden bg-black/40 sm:h-80 lg:h-auto lg:w-[48%]">
+          <div class="project-modal-media relative h-64 overflow-hidden sm:h-80 lg:h-auto lg:w-[48%]">
             <img id="project-modal-image" src="./src/assets/images/preview.png" alt="Project preview"
               class="h-full w-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent lg:bg-gradient-to-r">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-[#050816]/85 via-[#050816]/15 to-transparent lg:bg-gradient-to-r">
             </div>
           </div>
 
-          <div class="flex flex-1 flex-col overflow-y-auto p-6 sm:p-8">
+          <div class="project-modal-content flex flex-1 flex-col overflow-y-auto p-6 sm:p-8">
             <p class="font-heading text-xs uppercase tracking-[0.35em] text-cyan-400">
               Project Preview
             </p>
@@ -726,13 +730,13 @@
             <div class="mt-8 flex flex-wrap gap-3">
               <a id="project-modal-link" href="https://github.com/Mikecyberdev" target="_blank"
                 rel="noopener noreferrer"
-                class="font-heading inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-cyan-400">
+                class="project-modal-primary-action font-heading inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:-translate-y-1">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 <span id="project-modal-link-text">View on GitHub</span>
               </a>
 
               <button id="project-modal-close-secondary" type="button"
-                class="font-heading inline-flex items-center gap-2 rounded-xl border border-cyan-400 px-5 py-3 text-sm font-semibold text-cyan-300 transition duration-300 hover:-translate-y-1 hover:bg-cyan-400 hover:text-black">
+                class="project-modal-secondary-action font-heading inline-flex items-center gap-2 rounded-xl border border-cyan-400 px-5 py-3 text-sm font-semibold text-cyan-300 transition duration-300 hover:-translate-y-1">
                 <i class="fa-solid fa-xmark"></i>
                 Close
               </button>
@@ -855,28 +859,28 @@
       </section>
     </main>
 
-    <footer class="relative px-6 pb-8 pt-6">
+    <footer class="relative overflow-hidden px-6 pb-8 pt-6">
       <div class="mx-auto w-full max-w-6xl">
-        <div class="rounded-2xl border border-white/10 bg-black/30 px-6 py-5 shadow-lg backdrop-blur-md">
+        <div class="site-footer-shell rounded-2xl px-6 py-5">
           <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
 
-            <p class="text-center text-sm text-gray-400 md:text-left">
+            <p class="site-footer-copy text-center text-sm md:text-left">
               © 2026 Mike Cyber Dev. All rights reserved.
             </p>
 
             <div class="flex items-center gap-3">
               <a href="https://github.com/Mikecyberdev" target="_blank"
-                class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400">
+                class="site-footer-social flex h-10 w-10 items-center justify-center rounded-full transition">
                 <i class="fa-brands fa-github"></i>
               </a>
 
               <a href="https://www.linkedin.com/in/ndukwe-michael-241b89402/" target="_blank"
-                class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 transition hover:border-cyan-400 hover:text-cyan-400">
+                class="site-footer-social flex h-10 w-10 items-center justify-center rounded-full transition">
                 <i class="fa-brands fa-linkedin"></i>
               </a>
 
               <a href="#hero"
-                class="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-300 transition hover:bg-cyan-400 hover:text-black">
+                class="site-footer-top-link inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition">
                 <i class="fa-solid fa-arrow-up"></i>
                 Back to Top
               </a>
@@ -892,12 +896,18 @@
   <!-- Nav Link -->
 
 
+  <script type="module" src="./src/js/portfolio-site.js"></script>
+
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const skillProgressBars = document.querySelectorAll(".skill-progress-fill");
+    window.setupSkillProgressAnimation = function () {
       const skillsSection = document.getElementById("skills");
+      const skillProgressBars = document.querySelectorAll(".skill-progress-fill");
 
       if (!skillProgressBars.length) return;
+
+      skillProgressBars.forEach((bar) => {
+        bar.classList.remove("is-visible");
+      });
 
       function revealSkillBars() {
         skillProgressBars.forEach((bar, index) => {
@@ -910,6 +920,10 @@
       if (!skillsSection || !("IntersectionObserver" in window)) {
         revealSkillBars();
         return;
+      }
+
+      if (skillsSection.__skillObserver) {
+        skillsSection.__skillObserver.disconnect();
       }
 
       const skillObserver = new IntersectionObserver(
@@ -926,16 +940,23 @@
         }
       );
 
+      skillsSection.__skillObserver = skillObserver;
       skillObserver.observe(skillsSection);
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      window.setupSkillProgressAnimation();
     });
   </script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const projectCards = document.querySelectorAll(".project-card");
+    window.setupProjectModal = function () {
+      if (window.__projectModalBound) return;
+
+      const projectsGrid = document.getElementById("projects-grid");
       const projectModal = document.getElementById("project-modal");
-      const projectModalPanel = document.getElementById("project-modal-panel");
       const projectModalBackdrop = document.getElementById("project-modal-backdrop");
+      const projectModalPanel = document.getElementById("project-modal-panel");
       const projectModalClose = document.getElementById("project-modal-close");
       const projectModalCloseSecondary = document.getElementById("project-modal-close-secondary");
       const projectModalTitle = document.getElementById("project-modal-title");
@@ -946,7 +967,7 @@
       const projectModalLinkText = document.getElementById("project-modal-link-text");
 
       if (
-        !projectCards.length ||
+        !projectsGrid ||
         !projectModal ||
         !projectModalPanel ||
         !projectModalBackdrop ||
@@ -960,12 +981,14 @@
         !projectModalLinkText
       ) return;
 
+      window.__projectModalBound = true;
+
       let lastFocusedElement = null;
 
       function buildTag(tag) {
         const tagEl = document.createElement("span");
         tagEl.className =
-          "rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300";
+          "project-modal-tag rounded-full px-3 py-1 text-sm text-cyan-300";
         tagEl.textContent = tag.trim();
         return tagEl;
       }
@@ -1021,8 +1044,11 @@
         }
       }
 
-      projectCards.forEach((card) => {
-        card.addEventListener("click", () => openProjectModal(card));
+      projectsGrid.addEventListener("click", (event) => {
+        const projectCard = event.target.closest(".project-card");
+        if (!projectCard || !projectsGrid.contains(projectCard)) return;
+
+        openProjectModal(projectCard);
       });
 
       projectModalClose.addEventListener("click", closeProjectModal);
@@ -1034,6 +1060,10 @@
           closeProjectModal();
         }
       });
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      window.setupProjectModal();
     });
   </script>
 
