@@ -47,8 +47,15 @@
 
               <div>
                 <label for="login-password" class="admin-label">Password</label>
-                <input id="login-password" name="password" type="password" autocomplete="current-password"
-                  class="admin-input" placeholder="Enter your password" required />
+                <div class="admin-password-field">
+                  <input id="login-password" name="password" type="password" autocomplete="current-password"
+                    class="admin-input admin-password-input" placeholder="Enter your password" required />
+                  <button id="login-password-toggle" type="button" class="admin-password-toggle"
+                    aria-label="Show password" aria-pressed="false">
+                    <i class="fa-regular fa-eye"></i>
+                    <span>Show</span>
+                  </button>
+                </div>
               </div>
 
               <div class="flex flex-wrap items-center gap-3 pt-2">

@@ -116,6 +116,22 @@ function getSignInErrorMessage(error) {
   return error?.message || "Sign in failed.";
 }
 
+function setLoginPasswordVisibility(isVisible) {
+  if (!elements.loginPassword || !elements.loginPasswordToggle) {
+    return;
+  }
+
+  elements.loginPassword.type = isVisible ? "text" : "password";
+  elements.loginPasswordToggle.setAttribute("aria-pressed", String(isVisible));
+  elements.loginPasswordToggle.setAttribute(
+    "aria-label",
+    isVisible ? "Hide password" : "Show password"
+  );
+  elements.loginPasswordToggle.innerHTML = isVisible
+    ? '<i class="fa-regular fa-eye-slash"></i><span>Hide</span>'
+    : '<i class="fa-regular fa-eye"></i><span>Show</span>';
+}
+
 function bindStaticElements() {
   elements.status = document.getElementById("admin-status");
   elements.loginPanel = document.getElementById("login-panel");
@@ -124,6 +140,7 @@ function bindStaticElements() {
   elements.loginForm = document.getElementById("login-form");
   elements.loginEmail = document.getElementById("login-email");
   elements.loginPassword = document.getElementById("login-password");
+  elements.loginPasswordToggle = document.getElementById("login-password-toggle");
   elements.loginSubmitBtn = document.getElementById("login-submit-btn");
   elements.loginSignOutBtn = document.getElementById("login-signout-btn");
   elements.activeSectionTitle = document.getElementById("admin-active-section-title");
@@ -169,6 +186,7 @@ function showLoginPanel(options = {}) {
   elements.loginPanel.classList.remove("hidden");
   elements.dashboardPanel.classList.add("hidden");
   hideAuthenticatedControls();
+  setLoginPasswordVisibility(false);
 
   if (allowSessionSignOut) {
     elements.loginSignOutBtn.classList.remove("hidden");
@@ -254,6 +272,12 @@ function bindDashboardSectionNavigation() {
     link.addEventListener("click", () => {
       activateDashboardSection(link.dataset.adminNavLink);
     });
+  });
+}
+
+function bindLoginActions() {
+  elements.loginPasswordToggle?.addEventListener("click", () => {
+    setLoginPasswordVisibility(elements.loginPassword.type === "password");
   });
 }
 
@@ -801,6 +825,8 @@ async function initializeSession() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   bindStaticElements();
+  setLoginPasswordVisibility(false);
+  bindLoginActions();
   bindDashboardSectionNavigation();
   bindDynamicActions();
   showLoginPanel();
