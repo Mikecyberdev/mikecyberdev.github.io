@@ -8,6 +8,8 @@ import {
 } from "./portfolio-defaults.js";
 
 const supabase = getSupabaseClient();
+let latestPortfolioSignature = "";
+let refreshPortfolioPromise = null;
 
 function escapeHtml(value) {
   return String(value)
@@ -230,11 +232,48 @@ function refreshInteractiveSections() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const portfolioContent = await fetchPortfolioContent();
-
+function renderPortfolioContent(portfolioContent) {
   applyProfile(portfolioContent.profile);
   renderSkills(portfolioContent.skills);
   renderProjects(portfolioContent.projects);
   refreshInteractiveSections();
+}
+
+async function refreshPortfolioContent(options = {}) {
+  const { force = false } = options;
+
+  if (refreshPortfolioPromise) {
+    return refreshPortfolioPromise;
+  }
+
+  refreshPortfolioPromise = (async () => {
+    const portfolioContent = await fetchPortfolioContent();
+    const nextSignature = JSON.stringify(portfolioContent);
+
+    if (!force && nextSignature === latestPortfolioSignature) {
+      return;
+    }
+
+    latestPortfolioSignature = nextSignature;
+    renderPortfolioContent(portfolioContent);
+  })();
+
+  try {
+    await refreshPortfolioPromise;
+  } finally {
+    refreshPortfolioPromise = null;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await refreshPortfolioContent({ force: true });
+
+  window.addEventListener("focus", () => {
+    void refreshPortfolioContent();
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState !== "visible") return;
+    void refreshPortfolioContent();
+  });
 });
