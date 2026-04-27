@@ -63,12 +63,16 @@ function setBusy(buttons, isBusy, label) {
     if (!button) return;
     button.disabled = isBusy;
 
-    if (label) {
-      const original = button.dataset.originalHtml || button.innerHTML;
-      button.dataset.originalHtml = original;
-      button.innerHTML = isBusy
-        ? `<i class="fa-solid fa-spinner fa-spin"></i>${label}`
-        : original;
+    const original = button.dataset.originalHtml;
+
+    if (isBusy && label) {
+      button.dataset.originalHtml = original || button.innerHTML;
+      button.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>${label}`;
+      return;
+    }
+
+    if (!isBusy && original) {
+      button.innerHTML = original;
     }
   });
 }
