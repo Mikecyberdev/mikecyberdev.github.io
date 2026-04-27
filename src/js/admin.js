@@ -1,6 +1,4 @@
 import {
-  SUPABASE_PUBLISHABLE_KEY,
-  SUPABASE_URL,
   SITE_ASSETS_BUCKET,
   SITE_CONTENT_SLUG,
   getSupabaseClient,
@@ -11,7 +9,6 @@ import {
 } from "./portfolio-defaults.js";
 
 const supabase = getSupabaseClient();
-const CONNECTION_TIMEOUT_MS = 8000;
 const LOGIN_TIMEOUT_MS = 30000;
 
 const state = {
@@ -100,25 +97,6 @@ async function withTimeout(task, timeoutMs, timeoutMessage) {
     ]);
   } finally {
     window.clearTimeout(timeoutId);
-  }
-}
-
-async function canReachSupabase() {
-  try {
-    await withTimeout(
-      fetch(`${SUPABASE_URL}/auth/v1/health`, {
-        method: "GET",
-        headers: {
-          apikey: SUPABASE_PUBLISHABLE_KEY,
-        },
-      }),
-      CONNECTION_TIMEOUT_MS,
-      "Connection test timed out."
-    );
-
-    return true;
-  } catch {
-    return false;
   }
 }
 
@@ -756,14 +734,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     setBusy([elements.loginSubmitBtn], true, "Signing In...");
 
     try {
-      const isSupabaseReachable = await canReachSupabase();
-
-      if (!isSupabaseReachable) {
-        throw new Error(
-          "Cannot reach Supabase from this browser right now. Check Brave Shields, VPN, firewall, or your network and try again."
-        );
-      }
-
       const { error } = await withTimeout(
         supabase.auth.signInWithPassword({
           email: elements.loginEmail.value.trim(),
@@ -786,7 +756,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  supabase.auth.onAuthStateChange(async (_event, session) => {
+  supabase.auth.onAuthStateChange((_event, session) => {
     if (!session) {
       showLoginPanel();
       elements.loginForm.reset();
@@ -794,7 +764,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    await handleAuthenticatedState(session);
+    window.setTimeout(() => {
+      void handleAuthenticatedState(session);
+    }, 0);
   });
 
   await initializeSession();
