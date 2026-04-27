@@ -14,6 +14,7 @@ const LOGIN_TIMEOUT_MS = 30000;
 const state = {
   content: cloneDefaultPortfolioContent(),
   saveButtons: [],
+  sectionObserver: null,
 };
 
 const elements = {};
@@ -146,6 +147,27 @@ function bindStaticElements() {
   elements.projectsAdminList = document.getElementById("projects-admin-list");
   elements.addSkillGroupBtn = document.getElementById("add-skill-group-btn");
   elements.addProjectBtn = document.getElementById("add-project-btn");
+  elements.dashboardSessionAvatar = document.getElementById("admin-session-avatar");
+  elements.dashboardSummaryProfileImage = document.getElementById(
+    "admin-summary-profile-image"
+  );
+  elements.dashboardSummaryName = document.getElementById("admin-summary-name");
+  elements.dashboardSummaryRole = document.getElementById("admin-summary-role");
+  elements.dashboardSummaryTags = document.getElementById("admin-summary-tags");
+  elements.dashboardSummaryAssets = document.getElementById("admin-summary-assets");
+  elements.dashboardCompletionLabel = document.getElementById(
+    "admin-summary-completion-label"
+  );
+  elements.dashboardCompletionBar = document.getElementById(
+    "admin-summary-completion-bar"
+  );
+  elements.dashboardSkillCount = document.getElementById("admin-stat-skill-count");
+  elements.dashboardProjectCount = document.getElementById("admin-stat-project-count");
+  elements.dashboardAssetCount = document.getElementById("admin-stat-asset-count");
+  elements.dashboardTagCount = document.getElementById("admin-stat-tag-count");
+  elements.dashboardSectionLinks = Array.from(
+    document.querySelectorAll("[data-admin-nav-link]")
+  );
 
   state.saveButtons = [elements.saveTopBtn, elements.saveBottomBtn];
 }
@@ -180,6 +202,83 @@ function showDashboard(email) {
   elements.signOutBtn.classList.remove("hidden");
   elements.loginSignOutBtn.classList.add("hidden");
   elements.sessionPill.textContent = email || "Authenticated";
+  syncDashboardNavFromHash();
+}
+
+function setActiveDashboardNavLink(sectionId) {
+  const links = elements.dashboardSectionLinks || [];
+  let hasMatch = false;
+
+  links.forEach((link) => {
+    const isActive = link.dataset.adminNavLink === sectionId;
+    link.classList.toggle("is-active", isActive);
+
+    if (isActive) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+
+    hasMatch ||= isActive;
+  });
+
+  if (!hasMatch && links[0]) {
+    links[0].classList.add("is-active");
+    links[0].setAttribute("aria-current", "location");
+  }
+}
+
+function syncDashboardNavFromHash() {
+  const sectionId = window.location.hash.replace("#", "");
+  setActiveDashboardNavLink(sectionId || "profile-panel");
+}
+
+function bindDashboardSectionNavigation() {
+  const links = elements.dashboardSectionLinks || [];
+
+  if (!links.length) {
+    return;
+  }
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      setActiveDashboardNavLink(link.dataset.adminNavLink);
+    });
+  });
+
+  const sections = links
+    .map((link) => document.getElementById(link.dataset.adminNavLink))
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window && sections.length) {
+    state.sectionObserver?.disconnect();
+
+    state.sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (entryA, entryB) =>
+              entryB.intersectionRatio - entryA.intersectionRatio ||
+              entryA.boundingClientRect.top - entryB.boundingClientRect.top
+          );
+
+        if (visibleEntries[0]) {
+          setActiveDashboardNavLink(visibleEntries[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-18% 0px -55% 0px",
+        threshold: [0.2, 0.4, 0.7],
+      }
+    );
+
+    sections.forEach((section) => {
+      state.sectionObserver.observe(section);
+    });
+  }
+
+  window.addEventListener("hashchange", syncDashboardNavFromHash);
 }
 
 async function ensureAdminAccess() {
@@ -206,6 +305,104 @@ async function loadPortfolioContent() {
   return normalizePortfolioContent(data || {});
 }
 
+function countSkillEntries(skills) {
+  return skills.reduce(
+    (total, group) => total + (Array.isArray(group.items) ? group.items.length : 0),
+    0
+  );
+}
+
+function countReadyAssets(profile, projects) {
+  return [
+    Boolean(profile.profile_image_url),
+    Boolean(profile.cv_url),
+    ...projects.map((project) => Boolean(project.image_url)),
+  ].filter(Boolean).length;
+}
+
+function calculateProfileCompletion(profile) {
+  const checkpoints = [
+    profile.full_name,
+    profile.role_line,
+    profile.about_heading,
+    profile.about_intro,
+    profile.about_body,
+    profile.about_goal,
+    Array.isArray(profile.about_tags) && profile.about_tags.length > 0,
+    profile.profile_image_url,
+    profile.cv_url,
+  ];
+
+  const completed = checkpoints.filter(Boolean).length;
+  return Math.round((completed / checkpoints.length) * 100);
+}
+
+function updateDashboardSummary() {
+  const { profile, skills, projects } = state.content;
+  const displayName = profile.full_name || "Portfolio Owner";
+  const displayRole = profile.role_line || "Profile role line";
+  const imageUrl = profile.profile_image_url || "./src/assets/images/profile.jpg";
+  const imageAlt = profile.profile_image_alt || displayName;
+  const tagCount = profile.about_tags.length;
+  const skillEntryCount = countSkillEntries(skills);
+  const projectCount = projects.length;
+  const totalAssets = projects.length + 2;
+  const readyAssets = countReadyAssets(profile, projects);
+  const completionPercent = calculateProfileCompletion(profile);
+
+  if (elements.dashboardSummaryProfileImage) {
+    elements.dashboardSummaryProfileImage.src = imageUrl;
+    elements.dashboardSummaryProfileImage.alt = imageAlt;
+  }
+
+  if (elements.dashboardSessionAvatar) {
+    elements.dashboardSessionAvatar.src = imageUrl;
+    elements.dashboardSessionAvatar.alt = imageAlt;
+  }
+
+  if (elements.dashboardSummaryName) {
+    elements.dashboardSummaryName.textContent = displayName;
+  }
+
+  if (elements.dashboardSummaryRole) {
+    elements.dashboardSummaryRole.textContent = displayRole;
+  }
+
+  if (elements.dashboardSummaryTags) {
+    elements.dashboardSummaryTags.textContent = `${tagCount} ${
+      tagCount === 1 ? "tag" : "tags"
+    } ready`;
+  }
+
+  if (elements.dashboardSummaryAssets) {
+    elements.dashboardSummaryAssets.textContent = `${readyAssets}/${totalAssets} assets ready`;
+  }
+
+  if (elements.dashboardCompletionLabel) {
+    elements.dashboardCompletionLabel.textContent = `${completionPercent}%`;
+  }
+
+  if (elements.dashboardCompletionBar) {
+    elements.dashboardCompletionBar.style.width = `${completionPercent}%`;
+  }
+
+  if (elements.dashboardSkillCount) {
+    elements.dashboardSkillCount.textContent = String(skillEntryCount);
+  }
+
+  if (elements.dashboardProjectCount) {
+    elements.dashboardProjectCount.textContent = String(projectCount);
+  }
+
+  if (elements.dashboardAssetCount) {
+    elements.dashboardAssetCount.textContent = `${readyAssets}/${totalAssets}`;
+  }
+
+  if (elements.dashboardTagCount) {
+    elements.dashboardTagCount.textContent = String(tagCount);
+  }
+}
+
 function renderProfileFields() {
   const { profile } = state.content;
 
@@ -222,6 +419,7 @@ function renderProfileFields() {
   elements.profileImagePreview.alt = profile.profile_image_alt || "Profile preview";
   elements.cvUrl.value = profile.cv_url;
   elements.cvLinkPreview.href = profile.cv_url;
+  updateDashboardSummary();
 }
 
 function buildSkillItemsMarkup(group, groupIndex) {
@@ -302,6 +500,8 @@ function renderSkillsEditor() {
       `
     )
     .join("");
+
+  updateDashboardSummary();
 }
 
 function buildProjectMarkup(project, projectIndex) {
@@ -381,6 +581,8 @@ function renderProjectsEditor() {
   elements.projectsAdminList.innerHTML = state.content.projects
     .map((project, projectIndex) => buildProjectMarkup(project, projectIndex))
     .join("");
+
+  updateDashboardSummary();
 }
 
 function syncProfileFromDom() {
@@ -719,6 +921,7 @@ async function initializeSession() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   bindStaticElements();
+  bindDashboardSectionNavigation();
   bindDynamicActions();
   showLoginPanel();
 
