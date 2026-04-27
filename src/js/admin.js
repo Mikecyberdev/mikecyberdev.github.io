@@ -14,7 +14,7 @@ const LOGIN_TIMEOUT_MS = 30000;
 const state = {
   content: cloneDefaultPortfolioContent(),
   saveButtons: [],
-  sectionObserver: null,
+  activeSectionId: "profile-panel",
 };
 
 const elements = {};
@@ -120,12 +120,13 @@ function bindStaticElements() {
   elements.status = document.getElementById("admin-status");
   elements.loginPanel = document.getElementById("login-panel");
   elements.dashboardPanel = document.getElementById("dashboard-panel");
+  elements.dashboardMainContent = document.querySelector(".admin-main-content");
   elements.loginForm = document.getElementById("login-form");
   elements.loginEmail = document.getElementById("login-email");
   elements.loginPassword = document.getElementById("login-password");
   elements.loginSubmitBtn = document.getElementById("login-submit-btn");
   elements.loginSignOutBtn = document.getElementById("login-signout-btn");
-  elements.sessionPill = document.getElementById("admin-session-pill");
+  elements.activeSectionTitle = document.getElementById("admin-active-section-title");
   elements.saveTopBtn = document.getElementById("save-content-btn");
   elements.saveBottomBtn = document.getElementById("save-content-btn-bottom");
   elements.signOutBtn = document.getElementById("sign-out-btn");
@@ -147,38 +148,19 @@ function bindStaticElements() {
   elements.projectsAdminList = document.getElementById("projects-admin-list");
   elements.addSkillGroupBtn = document.getElementById("add-skill-group-btn");
   elements.addProjectBtn = document.getElementById("add-project-btn");
-  elements.dashboardSessionAvatar = document.getElementById("admin-session-avatar");
-  elements.dashboardSummaryProfileImage = document.getElementById(
-    "admin-summary-profile-image"
-  );
-  elements.dashboardSummaryName = document.getElementById("admin-summary-name");
-  elements.dashboardSummaryRole = document.getElementById("admin-summary-role");
-  elements.dashboardSummaryTags = document.getElementById("admin-summary-tags");
-  elements.dashboardSummaryAssets = document.getElementById("admin-summary-assets");
-  elements.dashboardCompletionLabel = document.getElementById(
-    "admin-summary-completion-label"
-  );
-  elements.dashboardCompletionBar = document.getElementById(
-    "admin-summary-completion-bar"
-  );
-  elements.dashboardSkillCount = document.getElementById("admin-stat-skill-count");
-  elements.dashboardProjectCount = document.getElementById("admin-stat-project-count");
-  elements.dashboardAssetCount = document.getElementById("admin-stat-asset-count");
-  elements.dashboardTagCount = document.getElementById("admin-stat-tag-count");
+  elements.dashboardPanels = Array.from(document.querySelectorAll("[data-admin-panel]"));
   elements.dashboardSectionLinks = Array.from(
     document.querySelectorAll("[data-admin-nav-link]")
   );
 
-  state.saveButtons = [elements.saveTopBtn, elements.saveBottomBtn];
+  state.saveButtons = [elements.saveTopBtn, elements.saveBottomBtn].filter(Boolean);
 }
 
 function hideAuthenticatedControls() {
-  elements.sessionPill.classList.add("hidden");
-  elements.saveTopBtn.classList.add("hidden");
-  elements.saveBottomBtn.classList.add("hidden");
-  elements.signOutBtn.classList.add("hidden");
-  elements.loginSignOutBtn.classList.add("hidden");
-  elements.sessionPill.textContent = "";
+  elements.saveTopBtn?.classList.add("hidden");
+  elements.saveBottomBtn?.classList.add("hidden");
+  elements.signOutBtn?.classList.add("hidden");
+  elements.loginSignOutBtn?.classList.add("hidden");
 }
 
 function showLoginPanel(options = {}) {
@@ -193,16 +175,13 @@ function showLoginPanel(options = {}) {
   }
 }
 
-function showDashboard(email) {
+function showDashboard() {
   elements.loginPanel.classList.add("hidden");
   elements.dashboardPanel.classList.remove("hidden");
-  elements.sessionPill.classList.remove("hidden");
-  elements.saveTopBtn.classList.remove("hidden");
-  elements.saveBottomBtn.classList.remove("hidden");
-  elements.signOutBtn.classList.remove("hidden");
-  elements.loginSignOutBtn.classList.add("hidden");
-  elements.sessionPill.textContent = email || "Authenticated";
-  syncDashboardNavFromHash();
+  elements.saveTopBtn?.classList.remove("hidden");
+  elements.signOutBtn?.classList.remove("hidden");
+  elements.loginSignOutBtn?.classList.add("hidden");
+  activateDashboardSection(state.activeSectionId || "profile-panel");
 }
 
 function setActiveDashboardNavLink(sectionId) {
@@ -214,7 +193,7 @@ function setActiveDashboardNavLink(sectionId) {
     link.classList.toggle("is-active", isActive);
 
     if (isActive) {
-      link.setAttribute("aria-current", "location");
+      link.setAttribute("aria-current", "page");
     } else {
       link.removeAttribute("aria-current");
     }
@@ -224,61 +203,58 @@ function setActiveDashboardNavLink(sectionId) {
 
   if (!hasMatch && links[0]) {
     links[0].classList.add("is-active");
-    links[0].setAttribute("aria-current", "location");
+    links[0].setAttribute("aria-current", "page");
   }
 }
 
-function syncDashboardNavFromHash() {
-  const sectionId = window.location.hash.replace("#", "");
-  setActiveDashboardNavLink(sectionId || "profile-panel");
+function getDefaultSectionId() {
+  return elements.dashboardPanels?.[0]?.id || "profile-panel";
+}
+
+function getSectionTitle(sectionId) {
+  const link = (elements.dashboardSectionLinks || []).find(
+    (item) => item.dataset.adminNavLink === sectionId
+  );
+
+  return (
+    link?.querySelector(".admin-side-link-label")?.textContent?.trim() ||
+    "Profile"
+  );
+}
+
+function activateDashboardSection(sectionId) {
+  const panels = elements.dashboardPanels || [];
+  const nextSectionId = panels.some((panel) => panel.id === sectionId)
+    ? sectionId
+    : getDefaultSectionId();
+
+  state.activeSectionId = nextSectionId;
+  setActiveDashboardNavLink(nextSectionId);
+
+  panels.forEach((panel) => {
+    const isActive = panel.id === nextSectionId;
+    panel.classList.toggle("hidden", !isActive);
+    panel.toggleAttribute("hidden", !isActive);
+    panel.setAttribute("aria-hidden", isActive ? "false" : "true");
+  });
+
+  if (elements.activeSectionTitle) {
+    elements.activeSectionTitle.textContent = getSectionTitle(nextSectionId);
+  }
+
+  if (elements.dashboardMainContent) {
+    elements.dashboardMainContent.scrollTop = 0;
+  }
 }
 
 function bindDashboardSectionNavigation() {
   const links = elements.dashboardSectionLinks || [];
 
-  if (!links.length) {
-    return;
-  }
-
   links.forEach((link) => {
     link.addEventListener("click", () => {
-      setActiveDashboardNavLink(link.dataset.adminNavLink);
+      activateDashboardSection(link.dataset.adminNavLink);
     });
   });
-
-  const sections = links
-    .map((link) => document.getElementById(link.dataset.adminNavLink))
-    .filter(Boolean);
-
-  if ("IntersectionObserver" in window && sections.length) {
-    state.sectionObserver?.disconnect();
-
-    state.sectionObserver = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (entryA, entryB) =>
-              entryB.intersectionRatio - entryA.intersectionRatio ||
-              entryA.boundingClientRect.top - entryB.boundingClientRect.top
-          );
-
-        if (visibleEntries[0]) {
-          setActiveDashboardNavLink(visibleEntries[0].target.id);
-        }
-      },
-      {
-        rootMargin: "-18% 0px -55% 0px",
-        threshold: [0.2, 0.4, 0.7],
-      }
-    );
-
-    sections.forEach((section) => {
-      state.sectionObserver.observe(section);
-    });
-  }
-
-  window.addEventListener("hashchange", syncDashboardNavFromHash);
 }
 
 async function ensureAdminAccess() {
@@ -305,106 +281,11 @@ async function loadPortfolioContent() {
   return normalizePortfolioContent(data || {});
 }
 
-function countSkillEntries(skills) {
-  return skills.reduce(
-    (total, group) => total + (Array.isArray(group.items) ? group.items.length : 0),
-    0
-  );
-}
-
-function countReadyAssets(profile, projects) {
-  return [
-    Boolean(profile.profile_image_url),
-    Boolean(profile.cv_url),
-    ...projects.map((project) => Boolean(project.image_url)),
-  ].filter(Boolean).length;
-}
-
-function calculateProfileCompletion(profile) {
-  const checkpoints = [
-    profile.full_name,
-    profile.role_line,
-    profile.about_heading,
-    profile.about_intro,
-    profile.about_body,
-    profile.about_goal,
-    Array.isArray(profile.about_tags) && profile.about_tags.length > 0,
-    profile.profile_image_url,
-    profile.cv_url,
-  ];
-
-  const completed = checkpoints.filter(Boolean).length;
-  return Math.round((completed / checkpoints.length) * 100);
-}
-
-function updateDashboardSummary() {
-  const { profile, skills, projects } = state.content;
-  const displayName = profile.full_name || "Portfolio Owner";
-  const displayRole = profile.role_line || "Profile role line";
-  const imageUrl = profile.profile_image_url || "./src/assets/images/profile.jpg";
-  const imageAlt = profile.profile_image_alt || displayName;
-  const tagCount = profile.about_tags.length;
-  const skillEntryCount = countSkillEntries(skills);
-  const projectCount = projects.length;
-  const totalAssets = projects.length + 2;
-  const readyAssets = countReadyAssets(profile, projects);
-  const completionPercent = calculateProfileCompletion(profile);
-
-  if (elements.dashboardSummaryProfileImage) {
-    elements.dashboardSummaryProfileImage.src = imageUrl;
-    elements.dashboardSummaryProfileImage.alt = imageAlt;
-  }
-
-  if (elements.dashboardSessionAvatar) {
-    elements.dashboardSessionAvatar.src = imageUrl;
-    elements.dashboardSessionAvatar.alt = imageAlt;
-  }
-
-  if (elements.dashboardSummaryName) {
-    elements.dashboardSummaryName.textContent = displayName;
-  }
-
-  if (elements.dashboardSummaryRole) {
-    elements.dashboardSummaryRole.textContent = displayRole;
-  }
-
-  if (elements.dashboardSummaryTags) {
-    elements.dashboardSummaryTags.textContent = `${tagCount} ${
-      tagCount === 1 ? "tag" : "tags"
-    } ready`;
-  }
-
-  if (elements.dashboardSummaryAssets) {
-    elements.dashboardSummaryAssets.textContent = `${readyAssets}/${totalAssets} assets ready`;
-  }
-
-  if (elements.dashboardCompletionLabel) {
-    elements.dashboardCompletionLabel.textContent = `${completionPercent}%`;
-  }
-
-  if (elements.dashboardCompletionBar) {
-    elements.dashboardCompletionBar.style.width = `${completionPercent}%`;
-  }
-
-  if (elements.dashboardSkillCount) {
-    elements.dashboardSkillCount.textContent = String(skillEntryCount);
-  }
-
-  if (elements.dashboardProjectCount) {
-    elements.dashboardProjectCount.textContent = String(projectCount);
-  }
-
-  if (elements.dashboardAssetCount) {
-    elements.dashboardAssetCount.textContent = `${readyAssets}/${totalAssets}`;
-  }
-
-  if (elements.dashboardTagCount) {
-    elements.dashboardTagCount.textContent = String(tagCount);
-  }
-}
-
 function renderProfileFields() {
   const { profile } = state.content;
+  const profileImageUrl = profile.profile_image_url || "./src/assets/images/profile.jpg";
+  const cvUrl =
+    profile.cv_url || "./public/files/Ndukwe_Michael_Okorie_Junior_CV.pdf";
 
   elements.profileFullName.value = profile.full_name;
   elements.profileRoleLine.value = profile.role_line;
@@ -415,11 +296,10 @@ function renderProfileFields() {
   elements.profileAboutTags.value = profile.about_tags.join(", ");
   elements.profileImageUrl.value = profile.profile_image_url;
   elements.profileImageAlt.value = profile.profile_image_alt;
-  elements.profileImagePreview.src = profile.profile_image_url;
+  elements.profileImagePreview.src = profileImageUrl;
   elements.profileImagePreview.alt = profile.profile_image_alt || "Profile preview";
   elements.cvUrl.value = profile.cv_url;
-  elements.cvLinkPreview.href = profile.cv_url;
-  updateDashboardSummary();
+  elements.cvLinkPreview.href = cvUrl;
 }
 
 function buildSkillItemsMarkup(group, groupIndex) {
@@ -500,8 +380,6 @@ function renderSkillsEditor() {
       `
     )
     .join("");
-
-  updateDashboardSummary();
 }
 
 function buildProjectMarkup(project, projectIndex) {
@@ -581,8 +459,6 @@ function renderProjectsEditor() {
   elements.projectsAdminList.innerHTML = state.content.projects
     .map((project, projectIndex) => buildProjectMarkup(project, projectIndex))
     .join("");
-
-  updateDashboardSummary();
 }
 
 function syncProfileFromDom() {
@@ -754,8 +630,14 @@ async function saveContent() {
 }
 
 async function signOut() {
-  await supabase.auth.signOut();
-  showStatus("Signed out.", "success");
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    showStatus(error.message || "Sign out failed.", "error");
+    return;
+  }
+
+  window.location.href = "./index.html";
 }
 
 function bindDynamicActions() {
@@ -881,8 +763,6 @@ function bindDynamicActions() {
 }
 
 async function handleAuthenticatedState(session) {
-  const email = session?.user?.email || "Authenticated";
-
   try {
     const isAdmin = await ensureAdminAccess();
 
@@ -898,7 +778,7 @@ async function handleAuthenticatedState(session) {
     elements.loginSignOutBtn.classList.add("hidden");
     state.content = await loadPortfolioContent();
     renderAllEditors();
-    showDashboard(email);
+    showDashboard();
     clearStatus();
   } catch (error) {
     showLoginPanel({ allowSessionSignOut: true });
@@ -964,6 +844,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       showLoginPanel();
       elements.loginForm.reset();
       state.content = cloneDefaultPortfolioContent();
+      state.activeSectionId = getDefaultSectionId();
       return;
     }
 
