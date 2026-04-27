@@ -1,4 +1,6 @@
 import {
+  SUPABASE_PUBLISHABLE_KEY,
+  SUPABASE_URL,
   SITE_ASSETS_BUCKET,
   SITE_CONTENT_SLUG,
   getSupabaseClient,
@@ -9,6 +11,8 @@ import {
 } from "./portfolio-defaults.js";
 
 const supabase = getSupabaseClient();
+const CONNECTION_TIMEOUT_MS = 8000;
+const LOGIN_TIMEOUT_MS = 30000;
 
 const state = {
   content: cloneDefaultPortfolioContent(),
@@ -74,6 +78,59 @@ function splitCommaList(value) {
     .split(",")
     .map((item) => item.trim())
     .filter(Boolean);
+}
+
+async function withTimeout(task, timeoutMs, timeoutMessage) {
+  let timeoutId;
+
+  try {
+    return await Promise.race([
+      task,
+      new Promise((_, reject) => {
+        timeoutId = window.setTimeout(() => {
+          const error = new Error(timeoutMessage);
+          error.name = "TimeoutError";
+          reject(error);
+        }, timeoutMs);
+      }),
+    ]);
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
+}
+
+async function canReachSupabase() {
+  try {
+    await withTimeout(
+      fetch(`${SUPABASE_URL}/auth/v1/health`, {
+        method: "GET",
+        headers: {
+          apikey: SUPABASE_PUBLISHABLE_KEY,
+        },
+      }),
+      CONNECTION_TIMEOUT_MS,
+      "Connection test timed out."
+    );
+
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function getSignInErrorMessage(error) {
+  if (error?.name === "TimeoutError") {
+    return "Login timed out. Supabase is taking too long to respond. Check your network and try again.";
+  }
+
+  if (
+    typeof error?.message === "string" &&
+    /failed to fetch|load failed|networkerror|network request failed/i.test(error.message)
+  ) {
+    return "Network error while signing in. Check your internet connection and try again.";
+  }
+
+  return error?.message || "Sign in failed.";
 }
 
 function bindStaticElements() {
@@ -686,13 +743,31 @@ document.addEventListener("DOMContentLoaded", async () => {
   elements.loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     clearStatus();
+
+    if (typeof navigator !== "undefined" && navigator.onLine === false) {
+      showStatus("You appear to be offline. Reconnect to the internet and try again.", "error");
+      return;
+    }
+
     setBusy([elements.loginSubmitBtn], true, "Signing In...");
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: elements.loginEmail.value.trim(),
-        password: elements.loginPassword.value,
-      });
+      const isSupabaseReachable = await canReachSupabase();
+
+      if (!isSupabaseReachable) {
+        throw new Error(
+          "Cannot reach Supabase from this browser right now. Check Brave Shields, VPN, firewall, or your network and try again."
+        );
+      }
+
+      const { error } = await withTimeout(
+        supabase.auth.signInWithPassword({
+          email: elements.loginEmail.value.trim(),
+          password: elements.loginPassword.value,
+        }),
+        LOGIN_TIMEOUT_MS,
+        "Login timed out. Supabase is taking too long to respond. Check your network and try again."
+      );
 
       if (error) {
         throw error;
@@ -701,7 +776,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       showStatus("Signed in successfully.", "success");
       elements.loginPassword.value = "";
     } catch (error) {
-      showStatus(error.message || "Sign in failed.", "error");
+      showStatus(getSignInErrorMessage(error), "error");
     } finally {
       setBusy([elements.loginSubmitBtn], false);
     }
