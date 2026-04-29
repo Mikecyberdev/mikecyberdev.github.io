@@ -1,23 +1,42 @@
 @import "tailwindcss";
 
 body {
-  background-image: url("./assets/images/background-cyber.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-color: #050816;
   font-family: 'Inter', sans-serif;
 }
 
-/* Mobile fix */
+#site-background {
+  background-image: url("./assets/images/background-cyber.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
 @media (max-width: 768px) {
-  body {
-    background-attachment: scroll;
+  #site-background {
+    background-position: right center;
   }
 }
 
 .font-heading {
   font-family: 'Orbitron', sans-serif;
+}
+
+#skills-grid,
+#projects-grid {
+  align-items: stretch;
+}
+
+#skills-grid > *,
+#projects-grid > * {
+  min-width: 0;
+}
+
+#skills-grid h3,
+#projects-grid h3 {
+  overflow-wrap: anywhere;
 }
 
 @keyframes floatSlow {
@@ -910,6 +929,8 @@ body::-webkit-scrollbar-thumb:hover {
 /* Firefox */
 html,
 body {
+  min-height: 100%;
+  overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: #06b6d4 #070112;
 }

@@ -265,6 +265,9 @@
   .left-4 {
     left: calc(var(--spacing) * 4);
   }
+  .z-0 {
+    z-index: 0;
+  }
   .z-10 {
     z-index: 10;
   }
@@ -1285,11 +1288,6 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
-  .md\:grid-cols-3 {
-    @media (width >= 48rem) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
   .md\:grid-cols-\[1fr\,160px\] {
     @media (width >= 48rem) {
       grid-template-columns: 1fr,160px;
@@ -1369,6 +1367,11 @@
       width: 48%;
     }
   }
+  .lg\:grid-cols-3 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
   .lg\:flex-row {
     @media (width >= 64rem) {
       flex-direction: row;
@@ -1408,20 +1411,33 @@
   }
 }
 body {
-  background-image: url("./assets/images/background-cyber.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-color: #050816;
   font-family: 'Inter', sans-serif;
 }
+#site-background {
+  background-image: url("./assets/images/background-cyber.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transform: translateZ(0);
+  will-change: transform;
+}
 @media (max-width: 768px) {
-  body {
-    background-attachment: scroll;
+  #site-background {
+    background-position: right center;
   }
 }
 .font-heading {
   font-family: 'Orbitron', sans-serif;
+}
+#skills-grid, #projects-grid {
+  align-items: stretch;
+}
+#skills-grid > *, #projects-grid > * {
+  min-width: 0;
+}
+#skills-grid h3, #projects-grid h3 {
+  overflow-wrap: anywhere;
 }
 @keyframes floatSlow {
   0%, 100% {
@@ -2093,6 +2109,8 @@ html::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #22d3ee, #8b5cf6);
 }
 html, body {
+  min-height: 100%;
+  overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: #06b6d4 #070112;
 }

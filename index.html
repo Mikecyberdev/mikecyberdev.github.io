@@ -137,6 +137,7 @@
 </script>
 
 <body class="loading text-white scroll-smooth">
+  <div id="site-background" class="pointer-events-none fixed inset-0 z-0" aria-hidden="true"></div>
 
   <div id="preloader"
     class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050816] transition-opacity duration-700">
@@ -160,7 +161,7 @@
     Access granted. Portfolio ready.
   </div>
 
-  <div id="page-content" class="opacity-0 transition-opacity duration-700">
+  <div id="page-content" class="relative z-10 opacity-0 transition-opacity duration-700">
     <!-- all your navbar, sections, footer go here -->
     <header id="site-header" class="fixed left-0 right-0 top-4 z-50 px-4 transition-transform duration-300">
       <nav
@@ -361,7 +362,7 @@
               </p>
             </div>
 
-            <div id="skills-grid" class="grid gap-6 md:grid-cols-3">
+            <div id="skills-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <!-- Frontend -->
               <article
                 class="rounded-2xl border border-cyan-400/15 bg-white/5 p-6 shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-cyan-500/10"
@@ -578,7 +579,7 @@
               </p>
             </div>
 
-            <div id="projects-grid" class="grid gap-6 md:grid-cols-3">
+            <div id="projects-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <!-- Project 1 -->
               <button type="button"
                 class="project-card group block h-full rounded-2xl border border-cyan-400/15 bg-white/5 p-6 text-left shadow-lg transition duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10 hover:shadow-cyan-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
@@ -827,7 +828,7 @@
                   <label for="email" class="mb-2 block text-sm font-medium text-gray-200">
                     Email
                   </label>
-                  <input type="email" id="email" name="email" placeholder="Enter your email"
+                  <input type="email" id="email" name="email" autocomplete="email" placeholder="Enter your email"
                     class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-400 focus:border-cyan-400 focus:bg-black/30" />
                   <p id="email-error" class="mt-2 hidden text-sm text-red-400"></p>
                 </div>
@@ -836,7 +837,8 @@
                   <label for="number" class="mb-2 block text-sm font-medium text-gray-200">
                     Phone Number
                   </label>
-                  <input type="tel" id="number" name="phone" placeholder="Enter your phone number"
+                  <input type="tel" id="number" name="phone" autocomplete="tel" inputmode="tel"
+                    placeholder="Enter your phone number"
                     class="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-400 focus:border-cyan-400 focus:bg-black/30" />
                   <p id="phone-error" class="mt-2 hidden text-sm text-red-400"></p>
                 </div>
